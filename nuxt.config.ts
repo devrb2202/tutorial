@@ -25,4 +25,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  //  mdc: {
+  //   highlight: {
+  //     theme: 'github-dark',
+  //     langs: ['ts', 'vue'],
+  //     wrapperStyle: true
+  //   }
+  // }
 })

@@ -10,13 +10,13 @@ export const useCrud = () => {
     const description = ref('')
     const updateLock = ref(true)
     const database = ref<Nigga[]>([])
-    const editingId = ref<number | null>(null) // Idagdag ito para sa editing state
+    const editingId = ref<number | null>(null)
 
     const create = () => {
         if(title.value.trim() && description.value.trim()){
             // Kung nasa update mode, gamitin ang update function
             if (editingId.value !== null) {
-                update(editingId.value)
+                update()
                 return
             }
             
@@ -29,8 +29,8 @@ export const useCrud = () => {
         }
         title.value = ''
         description.value = ''
-        editingId.value = null // I-reset ang editing state
-        updateLock.value = true // I-lock ulit ang update button
+        editingId.value = null
+        updateLock.value = true
     }
     
     // Read
@@ -38,30 +38,33 @@ export const useCrud = () => {
         return database.value
     }
     
-    // Update - Prepare for editing
+    // Prepare for editing
     const prepareUpdate = (id: number) => {
         const item = database.value.find(item => item.id === id)
         if (item) {
             title.value = item.title
             description.value = item.description
             editingId.value = id
-            updateLock.value = false // I-unlock ang update button
+            updateLock.value = false
         }
     }
     
-    // Update - Actual update function
-    const update = (id: number) => {
-        if (title.value.trim() && description.value.trim()) {
-            const index = database.value.findIndex(item => item.id === id)
+    // Actual update function - FIXED
+    const update = () => {
+        if (title.value.trim() && description.value.trim() && editingId.value !== null) {
+            const index = database.value.findIndex(item => item.id === editingId.value)
             if (index !== -1) {
-                database.value[index] = {
-                    ...database.value[index],
+                // Gumawa ng bagong object na may tamang types
+                const updatedItem: Nigga = {
+                    id: editingId.value, // Gamitin ang existing ID
                     title: title.value,
                     description: description.value
                 }
+                
+                database.value[index] = updatedItem
                 alert('Update Success!')
                 
-                // I-reset ang form at editing state
+                // I-reset ang form
                 title.value = ''
                 description.value = ''
                 editingId.value = null
@@ -84,7 +87,10 @@ export const useCrud = () => {
         read,
         create,
         del,
-        update: prepareUpdate, // I-expose ang prepareUpdate bilang update
-        editingId // Optional: kung gusto mong i-track sa UI
+        update: prepareUpdate,
+        editingId
      }
 }
+
+
+
