@@ -13,6 +13,15 @@
     },
     {
       "path": "./.nuxt/tsconfig.node.json"
-    }
+    },
+    // Newly added
+  //   {
+  //     "compilerOptions": {
+  //       "types": ["@types/node"],
+  //       "baseUrl": "."
+  //     },
+  //     "include": ["types", "components", "pages", "plugins", "composables"]
+  //   }
   ]
+  
 }

@@ -1,135 +1,85 @@
 <template>
-  <v-container fluid class="pa-0 h-screen d-flex align-center">
+  <v-container>
     <v-row class="justify-center">
-      <v-col cols="12" sm="3">
-        <p>User Input</p>
-        <v-text-field label="Title" placeholder="Title" v-model="tle"/>
-        <v-text-field label="Description" placeholder="Description" v-model="des"/>
-        <v-btn color="primary" @click="create" block :text="editingId !== null ? 'Update Now' : 'Create Now'" class="mb-2"/>
-        <v-btn color="pink" @click="cancelEdit" block text="Cancel" :disabled="updateLock" v-if="editingId !== null"/>
-      </v-col>
-      <v-col cols="12" sm="5">
-        <p>Data Output</p>
-          <v-table height="200">
-            <thead>
-              <tr>
-                <th class="text-left">Id</th>
-                <th class="text-left">Title</th>
-                <th class="text-left">Description</th>
-                <th class="text-left">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, index) in database" :key="index">
-                <td>{{ item.id }}</td>
-                <td>{{ item.title }}</td>
-                <td>{{ item.description }}</td>
-                <td>
-                  <v-btn color="red" size="small" @click="del(index)">Delete</v-btn>
-                  <v-btn color="green" size="small" @click="update(item.id)">Update</v-btn>
-                </td>
-              </tr>
-            </tbody>
-          </v-table>
-          <!-- <v-container class="bg-black">
-              <pre class="bg-black"><code class="language-vue">{{ sample }}</code></pre>
-          </v-container> -->
+      <v-col cols="10" sm="8">
+        <p class="text-h4 opacity-80 text-center">
+          Go from beginner to expert with our free Tech tutorials
+        </p>
+        <p class="text-subtitle-1 text-center mt-5">
+          Start learning the fundamental concepts of technologies, with examples, in the latest and most popular technologies.
+        </p>
+        <p class="text-h4 opacity-80 text-center mt-10">Tutorials</p>
+        <div class="mt-5">
          
-           <!-- <code>
-            {{  sample }}
-           </code> -->
-
-            <v-sheet 
-              class="overflow-x-auto rounded-lg" 
-              color="grey-darken-4" 
-              style="max-width: 100%"
-            >
-              <pre class="pa-4 ma-0 text-white font-weight-regular"><code>{{ sample }}</code></pre>
-            </v-sheet>
+          <v-row class="justify-center">
+            <TutorialsCard 
+                v-for="(x, index) in card"
+                :key="index"
+                :source="x.img"
+                :title="x.title"
+                :toRouter="x.to"
+            
+            />
+           
+          </v-row>
+        
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
 <style scoped>
-pre {
-  font-family: 'Monaco', 'Consolas', monospace !important;
-  font-size: 14px;
-  line-height: 1.5;
-  white-space: pre;
-  word-wrap: normal;
+
+
+.v-card{
+  /* transition: all 0.3s ease; */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: none; /* no elevation */
+}
+.v-card:hover {
+  /* transform: scale(1.05);  
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+  transform: rotate(15deg) scale(1.03); */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* custom elevation effect */
+
 }
 
-code {
-  background: transparent !important;
-  color: inherit !important;
-  padding: 0 !important;
-}
+
 </style>
 
-<script setup lang="ts">
-
-const { 
-  create, 
-  title, 
-  description, 
-  database, 
-  updateLock,
-  del,
-  update,
-  editingId
-} = useCrud()
-
-const tle = title
-const des = description
-
-// Optional: cancel edit function
-const cancelEdit = () => {
-  title.value = ''
-  description.value = ''
-  editingId.value = null
-  updateLock.value = true
-}
+<script setup>
+import { TutorialsCard } from '#components';
 
 
-const sample = ref(`
-  <template>
-  <v-row>
-    <v-col cols="auto">
-      <v-card class="overflow-auto" height="200" width="200">
-        <v-card-text>
-          <h3>Overflow Auto</h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-          facilis dicta esse molestias vero hic laudantium provident nisi eos
-          quasi iusto alias sequi, aut aliquid voluptatibus commodi! Minima, eum
-          voluptates?
-        </v-card-text>
-      </v-card>
-    </v-col>
 
-    <v-col cols="auto">
-      <v-card class="overflow-hidden" height="200" width="200">
-        <v-card-text>
-          <h3>Overflow Hidden</h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-          facilis dicta esse molestias vero hic laudantium provident nisi eos
-          quasi iusto alias sequi, aut aliquid voluptatibus commodi! Minima, eum
-          voluptates?
-        </v-card-text>
-      </v-card>
-    </v-col>
+const card = ref([
+  { 
+    title: 'Nuxt Js FullStack',
+    img: "https://imgs.search.brave.com/HLAR-gSKMR1kp4Q9l7KRtBTfiO0c6QmD1IWj-iWbLqs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzMyLzEvbnV4dC1s/b2dvLXBuZ19zZWVr/bG9nby0zMjgyMDQu/cG5n",
+    to: '/nuxt'
+  },
+  { 
+    title: 'Supabase',
+    img: "https://imgs.search.brave.com/sbXQml0aQN0masqredkBerWgJYx-asvaSHifWmzOn-o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hdXRo/anMuZGV2L2ltZy9h/ZGFwdGVycy9zdXBh/YmFzZS5zdmc",
+    to: '/supabase'
+  },
+  { 
+    title: 'Networking',
+    img: "https://imgs.search.brave.com/l_tCJljjZVVEg6DROP_L0rp-EykCsPbslUyHCXv0SJM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzMvMS9jaXNjby1s/b2dvLXBuZ19zZWVr/bG9nby0zMDY3NC5w/bmc",
+    to: '/networking'
+  },
+  { 
+    title: 'Windows Server',
+    img: "https://imgs.search.brave.com/AcErv7F_FwEpGy7Fga9-PGCxD9RepjzFTax5Krxz9p8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50ZW5vci5jb20v/RFJRdW1lYWRoZ1lB/QUFBbS93aW5kb3dz/MTAtd2luZG93cy53/ZWJw",
+    to: '/windows'
+  },
 
-    <v-col cols="auto">
-      <v-card class="overflow-visible" height="200" width="200">
-        <v-card-text>
-          <h3>Overflow visible</h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-          facilis dicta esse molestias vero hic laudantium provident nisi eos
-          quasi iusto alias sequi, aut aliquid voluptatibus commodi! Minima, eum
-          voluptates?
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
-</template>
-`)
+])
+
+
+definePageMeta({
+  layout: 'main'
+})
 </script>
