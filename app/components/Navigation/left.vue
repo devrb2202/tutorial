@@ -3,34 +3,12 @@
      <div class="d-flex justify-start align-center mb-2" >
         <v-icon size="100">mdi-cast-education</v-icon>
         <div>
-           <p class="text-h4 text-block font-weight-bold">Source Nigga</p>
-           <p class="text-caption">Developed by Super Nigga</p>
+           <p class="text-h5 text-block font-weight-thin">Personal Documentation</p>
+           <!-- <p class="text-caption">Developer</p>
+            <span class="text-body-2">
+                &copy; {{ new Date().getFullYear() }} TravelEase SaaS. All rights reserved.
+            </span> -->
         </div>
-       
-        <!-- <v-btn 
-          prepend-icon="mdi-github" 
-          text="github"
-          class="text-capitalize ma-2"
-          size="small"
-          variant="outlined"
-        
-        />
-        <v-btn 
-          prepend-icon="mdi-facebook" 
-          text="facebook"
-          class="text-capitalize ma-2"
-          size="small"
-          variant="outlined"
-        
-        />
-        <v-btn 
-          prepend-icon="mdi-linkedin" 
-          text="linkedin"
-          class="text-capitalize ma-2"
-          size="small"
-          variant="outlined"
-          
-        /> -->
       </div>
       <v-divider></v-divider>
       <div class="mt-2">
@@ -44,6 +22,7 @@
           block
           class="text-font-600 justify-start opacity-80"
           :text="menu.title"
+          :to="menu.to"
         />
       </div>
 
@@ -57,11 +36,10 @@
             block
             class="text-font-600 justify-start opacity-80"
             :text="menu.title"
+            :to="menu.to"
           />
-
       </div>
 
-          
       <div class="">
         <p class="text-h5">Networking</p>
           <v-btn 
@@ -74,7 +52,6 @@
             :text="menu.title"
           />
       </div>
-
       
       <div class="">
         <p class="text-h5">Windows Server</p>
@@ -88,33 +65,64 @@
             :text="menu.title"
           />
       </div>
+      <v-divider></v-divider>
+       <div class="pt-10 pb-5">
+          <p class="text-h4 text-block font-weight-bold"></p>
+          <p class="text-caption">Developed by Ramil Bercasio</p>
+          <span class="text-body-2">
+              &copy; {{ new Date().getFullYear() }} Open Source Project. All rights reserved.
+          </span>
+          <v-btn 
+            text="github"
+            prepend-icon="mdi-github"
+            variant="outlined"
+            size="small"
+            color="green"
+          />
+          <v-btn 
+            text="facebook"
+            prepend-icon="mdi-facebook"
+            variant="outlined"
+            size="small"
+            color="blue"
+          />
+           <v-btn 
+            text="linkedin"
+            prepend-icon="mdi-linkedin"
+            variant="outlined"
+            size="small"
+            color="pink"
+          />
+
+
+       </div>
   </v-container>
 </template>
 
 <script setup>
 
 const nuxtMenu = ref([
-  { title: 'Introduction to Nuxt', to: '/home'},
-  { title: 'Creating Pages', to: '/nuxt/pages'},
+  { title: 'Introduction to Nuxt', to: '/nuxt/introduction'},
+  { title: 'Creating Pages', to: '/nuxt/create-page'},
   { title: 'Reusable components', to: '/nuxt/components'},
-  { title: 'Creating layouts(shared UI)', to: '/'},
-  { title: 'State Management', to: '/'},
-  { title: 'Data Fetching', to: '/'},
-  { title: 'Composables', to: '/'},
-  { title: 'Deployment(Frontend)', to: '/'},
-  { title: 'Nuxt Server Side Basics', to: '/'}
+  { title: 'Creating layouts(shared UI)', to: '/nuxt/layouts'},
+  { title: 'State Management', to: '/nuxt/state-management'},
+  { title: 'Data Fetching', to: '/nuxt/data-fetching'},
+  { title: 'Composables', to: '/nuxt/composables'},
+  { title: 'Deployment(Frontend)', to: '/nuxt/deployment'},
+  { title: 'Nuxt Server Side Basics', to: '/nuxt/server-side'}
 
 ])
 
 const supabaseMenu = ref([
-  { title: 'Introduction to Supabase', to: '/home'},
-  { title: 'Project Setup', to: '/nuxt/pages'},
-  { title: 'Creating Client', to: '/nuxt/components'},
-  { title: 'Database Operation(CRUD)', to: '/'},
-  { title: 'Realtime Subscription', to: '/'},
-  { title: 'Storage for File Uploads', to: '/'},
-  { title: 'Edge Function(Serverless function)', to: '/'},
-  { title: 'Example Project using Nuxt with Supabase', to: '/'}
+  { title: 'Introduction to Supabase', to: '/supabase/introduction'},
+  { title: 'Project Setup', to: '/supabase/project-setup'},
+  { title: 'Creating Client', to: '/supabase/creating-client'},
+  { title: 'Database Operation(CRUD)', to: '/supabase/database-operation'},
+  { title: 'Realtime Subscription', to: '/supabase/realtime-subscription'},
+  { title: 'Storage for File Uploads', to: '/supabase/storage-for-file-uploads'},
+  { title: 'Edge Function(Serverless function)', to: '/supabase/edge-function'},
+  { title: 'Example Project with Supabase', to: '/supabase/example-project'}
 
 ])
 
@@ -146,7 +154,6 @@ const windowsMenu = ref([
   { title: 'Useful Powershell Command', to: '/'}
 
 ])
-
 
 </script>
 

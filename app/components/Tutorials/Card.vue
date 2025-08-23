@@ -7,7 +7,7 @@
                 :aspect-ratio="1"
                 class="bg-white"
                 :src="source"
-                width="150"
+                :width="150"
                 cover
             />
             <p class="text-center text-subtitle-1 opacity-60">{{ title }}</p>
