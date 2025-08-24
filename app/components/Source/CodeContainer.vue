@@ -1,4 +1,9 @@
 <template>
+  <v-container fluid>
+    <p class="text-subtitle-1 opacity-80">
+      {{ details }}
+    </p>
+  </v-container>
   <v-card class="my-4" variant="flat">
     <!-- Header -->
     <v-card-title class="d-flex justify-space-between align-center bg-grey-darken-3 py-2">
@@ -45,7 +50,8 @@ import 'prismjs/components/prism-css'
 const props = defineProps({
   sampleCode: { type: String, required: true },
   title: { type: String, default: 'Code Example' },
-  language: { type: String, default: 'javascript' }
+  language: { type: String, default: 'javascript' },
+  details: { type: String, default: 'lorem 2x sinta'}
 })
 
 const snackbar = ref(false)

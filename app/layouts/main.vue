@@ -10,6 +10,7 @@
         icon="mdi-format-align-left" 
       />
 
+      <!-- Only visible on desktop view-->
       <v-app-bar-title>
          <v-breadcrumbs :items="breadcrumbs" class="d-none d-sm-flex">
             <template v-slot:title="{ item }">
@@ -48,15 +49,58 @@
                    <NavigationPageToc />
                  </v-navigation-drawer>
               </v-col>
+              <!-- Navigation -->
+            <v-col cols="12" sm="10">
+              <div class="d-flex justify-space-between">
+                <v-card 
+                  elevation="0" 
+                  :class="`d-flex align-center 
+                  justify-center pa-2 justify-space-between
+                  ${theme.global.current.value.dark ? 'card-button-border-1': 'card-button-border-2'}`" 
+                  width="150"
+                  v-if="prevPage" :to="prevPage.href"
+                >
+                  <v-icon size="40">mdi-chevron-left</v-icon>
+                  <div>
+                    <p class="text-capitalize text-caption opacity-60">
+                      previous page
+                    </p>
+                    <p class="text-capitalize text-sm-subtitle-2 text-caption">
+                      
+                      {{ prevPage.title }}
+                    </p>
+                  </div>
+                 
+                </v-card>
 
-            <v-col cols="10" sm="8" class="d-flex justify-space-between">
-                <v-btn v-if="prevPage" :to="prevPage.href" variant="plain" prepend-icon="mdi-chevron-left" class="justify-start text-capitalize" size="large">
+                 <v-card 
+                    elevation="0" 
+                    :class="`d-flex align-center
+                     justify-center pa-2 justify-space-between
+                     ${theme.global.current.value.dark ? 'card-button-border-1':'card-button-border-2'}`" 
+                    width="150"
+                    v-if="nextPage" :to="nextPage.href"
+                  >
+                    <div>
+                        <p class="text-capitalize text-caption opacity-60">
+                          next page
+                        </p>
+                        <p class="text-capitalize text-sm-subtitle-2 text-caption">
+                            {{ nextPage.title }}
+                        </p>
+                    </div>
+                
+                  <v-icon size="40">mdi-chevron-right</v-icon>
+                </v-card>
+                <!-- <v-btn v-if="prevPage" :to="prevPage.href" variant="plain" prepend-icon="mdi-chevron-left" class="justify-start text-capitalize" size="large">
                   {{ prevPage.title }}
                 </v-btn>
             
-                <v-btn v-if="nextPage" :to="nextPage.href" variant="tonal" append-icon="mdi-chevron-right" class="text-capitalize" size="large">
+                <v-btn v-if="nextPage" :to="nextPage.href" variant="plain" append-icon="mdi-chevron-right" class="text-capitalize" size="large">
                   {{ nextPage.title }}
-                </v-btn>
+                </v-btn> -->
+              </div>
+            
             </v-col>
 
           </v-row>
@@ -179,5 +223,14 @@ html, body, #__nuxt, .v-application {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+.card-button-border-1 {
+  border: 1px solid #F50057;
+  transition: border 0.4s ease, color 0.4s ease;
+}
+
+.card-button-border-2 {
+  border: 1px solid #1565C0;
+  transition: border 0.4s ease, color 0.4s ease;
+}
 </style>
 

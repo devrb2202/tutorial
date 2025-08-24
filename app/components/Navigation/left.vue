@@ -67,7 +67,7 @@
           <span class="text-body-2">
               &copy; {{ new Date().getFullYear() }} Open Source Project. All rights reserved.
           </span>
-          <v-btn 
+          <!-- <v-btn 
             text="github"
             prepend-icon="mdi-github"
             variant="outlined"
@@ -87,7 +87,7 @@
             variant="outlined"
             size="small"
             color="pink"
-          />
+          /> -->
 
 
        </div>
