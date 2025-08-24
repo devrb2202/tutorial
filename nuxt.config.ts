@@ -17,6 +17,7 @@ export default defineNuxtConfig({
       })
     },
     //...
+    'nuxt-anchorscroll',
   ],
   vite: {
     vue: {
@@ -25,6 +26,19 @@ export default defineNuxtConfig({
       },
     },
   },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
+  anchorscroll: {
+    hooks: [
+      // Or any valid hook if needed
+      // Default is `page:finish`
+      'page:transition:finish',
+    ],
+  },
+
   //  mdc: {
   //   highlight: {
   //     theme: 'github-dark',

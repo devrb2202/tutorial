@@ -13,7 +13,6 @@
       <v-divider></v-divider>
       <div class="mt-2">
         <p class="text-h5">Nuxt Fullstack</p>
-      
         <v-btn 
           variant="text" 
           :ripple="false" 
@@ -184,6 +183,11 @@ const windowsMenu = ref([
 .v-btn:hover {
   color: #DD2C00;
   
+}
+
+
+.inline {
+  display: inline;
 }
 /* 
 

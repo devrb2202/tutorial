@@ -15,7 +15,7 @@
         </v-card-title>
         
         <v-card-text class="pa-0">
-          <div class="bg-grey-darken-4">
+          <div class="bg-grey-darken-4 w-100 overflow-auto" style="height: 300px;">
               <pre class="pa-4"><code v-html="highlightedCode"></code></pre>
           </div>
         </v-card-text>
@@ -58,18 +58,6 @@ const sampleCode = ref(`
 
         <v-col cols="auto">
           <v-btn size="small">Small Button</v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn>Regular Button</v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn size="large">Large Button</v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn size="x-large">X-Large Button</v-btn>
         </v-col>
       </v-row>
     </v-container>
