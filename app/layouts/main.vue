@@ -4,7 +4,7 @@
         <NavigationLeft />
     </v-navigation-drawer>
 
-    <v-app-bar>
+    <v-app-bar :class="theme.global.current.value.dark ? 'border-bottom':'none'">
       <v-app-bar-nav-icon 
         @click="drawer = !drawer" 
         icon="mdi-format-align-left" 
@@ -18,6 +18,12 @@
           </v-breadcrumbs>
       </v-app-bar-title>
 
+      <v-btn
+          @click="toggleTheme"
+          :icon="theme.global.current.value.dark ? 'mdi-lightbulb-on-10': 'mdi-weather-night'"
+          class="bg-pink-accent-3 mr-2"
+      />
+
       <!-- For mobile view -->
       <v-app-bar-nav-icon 
         class="d-flex d-sm-none"
@@ -27,22 +33,20 @@
      
     </v-app-bar>
 
-    <v-main class="bg-grey-lighten-3">
+    <v-main class="">
       <v-container fluid>
           <v-row class="justify-start">
+
               <v-col cols="12" sm="10">
                 <slot />
               </v-col>
-              <!-- <v-navigation-drawer  width="250" location="right">
-                <NavigationPageToc />
-              </v-navigation-drawer> -->
-              <!-- for mobile -->
+          
               <v-col cols="2">
                  <v-navigation-drawer v-model="mobileDrawer" width="250" location="right">
                    <NavigationPageToc />
                  </v-navigation-drawer>
-               
               </v-col>
+
             <v-col cols="10" sm="8" class="d-flex justify-space-between">
                 <v-btn v-if="prevPage" :to="prevPage.href" variant="plain" prepend-icon="mdi-chevron-left" class="justify-start text-capitalize" size="large">
                   {{ prevPage.title }}
@@ -52,6 +56,7 @@
                   {{ nextPage.title }}
                 </v-btn>
             </v-col>
+
           </v-row>
       </v-container>
     </v-main>
@@ -60,9 +65,16 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useTheme } from 'vuetify/lib/composables/theme.mjs'
 
 const drawer = ref(null)
 const mobileDrawer = ref(null)
+const theme = useTheme()
+
+
+function toggleTheme(){
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 
 const pageOrder = [
   { title: 'Home', href: '/' },
@@ -138,4 +150,11 @@ const nextPage = computed(() =>
 
 </script>
 
+<style scoped>
+
+.border-bottom {
+  border-bottom: 2px solid #F50057;
+}
+
+</style>
 
