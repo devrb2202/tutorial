@@ -3,6 +3,12 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 export const useToc = () => {
   const toc = {
+    '/': [
+      { label: 'What is Vue JS?', hash: '#sample01' },
+      { label: 'Why it’s needed?', hash: '#sample02' },
+      { label: 'What is an advantage?', hash: '#sample03' }
+    ],
+
     '/nuxt/introduction': [
       { label: 'What is Vue JS?', hash: '#sample01' },
       { label: 'Why it’s needed?', hash: '#sample02' },

@@ -1,7 +1,4 @@
 <template>
-    <v-container id="code">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis velit nulla voluptatibus ipsa minima, provident impedit quaerat dignissimos, dolores nostrum vel repellendus doloribus! Architecto deserunt modi voluptatum a! Maxime molestias nostrum nihil quas, incidunt molestiae illum ipsa at consectetur dolores esse modi autem dolorum vitae tempora, assumenda necessitatibus deleniti corporis!</p>
-    </v-container>
     <v-card class="my-4" variant="flat">
         <v-card-title class="d-flex justify-space-between align-center bg-grey-darken-3 py-2">
         <span class="text-caption">Vue Component</span>
@@ -16,7 +13,7 @@
         
         <v-card-text class="pa-0">
           <div class="bg-grey-darken-4 w-100 overflow-auto" style="height: 300px;">
-              <pre class="pa-4"><code v-html="highlightedCode"></code></pre>
+              <pre class="pa-4"><code :v-html="highlighted"></code></pre>
           </div>
         </v-card-text>
      
@@ -37,32 +34,39 @@
 <script setup>
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
-
 // load basic languages
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-css'
 
-const highlightedCode = ref('')
 
+
+
+
+const props = defineProps({
+  sampleCode: { type: String, required: true },
+  title: { type: String, default: 'Code Example' },
+  language: { type: String, default: 'javascript' } // default JS
+})
 
 const snackbar = ref(false)
-const sampleCode = ref(`
-  <template>
-    <v-container>
-      <v-row align="center" justify="center">
-        <v-col cols="auto">
-          <v-btn size="x-small">Extra small Button</v-btn>
-        </v-col>
+const highlighted = ref('')
+// const sampleCode = ref(`
+//   <template>
+//     <v-container>
+//       <v-row align="center" justify="center">
+//         <v-col cols="auto">
+//           <v-btn size="x-small">Extra small Button</v-btn>
+//         </v-col>
 
-        <v-col cols="auto">
-          <v-btn size="small">Small Button</v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
-  </template>
-`)
+//         <v-col cols="auto">
+//           <v-btn size="small">Small Button</v-btn>
+//         </v-col>
+//       </v-row>
+//     </v-container>
+//   </template>
+// `)
 
 const copyCode = async () => {
   try {
@@ -75,13 +79,23 @@ const copyCode = async () => {
 }
 
 
+// onMounted(() => {
+//   highlightedCode.value = Prism.highlight(
+//     sampleCode.value,
+//     Prism.languages.markup, // 👈 gumamit ng markup (HTML/XML) highlight
+//     'markup'
+//   )
+// })
+
 onMounted(() => {
-  highlightedCode.value = Prism.highlight(
-    sampleCode.value,
-    Prism.languages.markup, // 👈 gumamit ng markup (HTML/XML) highlight
-    'markup'
+  const lang = props.language || 'javascript'
+  highlighted.value = Prism.highlight(
+    props.sampleCode,
+    Prism.languages[lang],
+    lang
   )
 })
+
 
 </script>
 

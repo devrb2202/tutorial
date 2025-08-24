@@ -22,10 +22,12 @@
           @click="toggleTheme"
           :icon="theme.global.current.value.dark ? 'mdi-lightbulb-on-10': 'mdi-weather-night'"
           class="bg-pink-accent-3 mr-2"
+          size="small"
       />
 
       <!-- For mobile view -->
       <v-app-bar-nav-icon 
+        v-if="hitRoute"
         class="d-flex d-sm-none"
         @click="mobileDrawer = !mobileDrawer" 
         icon="mdi-format-align-right"
@@ -42,7 +44,7 @@
               </v-col>
           
               <v-col cols="2">
-                 <v-navigation-drawer v-model="mobileDrawer" width="250" location="right">
+                 <v-navigation-drawer v-model="mobileDrawer" width="250" location="right" v-if="hitRoute">
                    <NavigationPageToc />
                  </v-navigation-drawer>
               </v-col>
@@ -67,14 +69,35 @@
 import { ref } from 'vue'
 import { useTheme } from 'vuetify/lib/composables/theme.mjs'
 
+
 const drawer = ref(null)
 const mobileDrawer = ref(null)
+
+
 const theme = useTheme()
 
+// itago si pageToc kapag nasa path ng / or nasa indexpage
+// dynamic kahit ilang beses na cycle 
+const hitRoute = computed(() => route.path !== '/')
+
+// hindi sya recommended gamitin kasi for static lang ito gagana
+// function indexPath() {
+//     if(route.path !== '/'){
+//       hitRoute.value = true
+//     }
+//     
+   
+// }
+
+// onMounted(() => {
+//   indexPath()
+// })
 
 function toggleTheme(){
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+ 
 }
+
 
 const pageOrder = [
   { title: 'Home', href: '/' },
@@ -101,7 +124,6 @@ const pageOrder = [
   
 ]
 
-
 const titleMap = {
   nuxt: 'Nuxt',
   intro: 'Intro to Nuxt',
@@ -127,10 +149,7 @@ const breadcrumbs = computed(() => {
     ]
 })
 
-// Hanapin current index
-// const currentIndex = computed(() =>
-//   pageOrder.findIndex(p => p.href === route.path)
-// )
+// Hanapin si current index
 const currentIndex = computed(() => {
   // kunin lang yung path part (walang hash)
   const cleanPath = route.path
@@ -154,6 +173,10 @@ const nextPage = computed(() =>
 
 .border-bottom {
   border-bottom: 2px solid #F50057;
+  transition: border-bottom 2.4s ease, color 0.4s ease;
+}
+html, body, #__nuxt, .v-application {
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 </style>

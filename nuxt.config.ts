@@ -38,6 +38,9 @@ export default defineNuxtConfig({
       'page:transition:finish',
     ],
   },
+  css: [
+    './assets/main.css',      
+  ]
 
   //  mdc: {
   //   highlight: {

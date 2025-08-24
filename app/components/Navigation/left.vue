@@ -3,11 +3,7 @@
      <div class="d-flex justify-start align-center mb-2" >
         <v-icon size="100">mdi-cast-education</v-icon>
         <div>
-           <p class="text-h5 text-block font-weight-thin">Personal Documentation</p>
-           <!-- <p class="text-caption">Developer</p>
-            <span class="text-body-2">
-                &copy; {{ new Date().getFullYear() }} TravelEase SaaS. All rights reserved.
-            </span> -->
+           <p :class="`text-h5 ${theme.global.current.value.dark ? 'text-pink': 'none'}`" >Personal Documentation</p>
         </div>
       </div>
       <v-divider></v-divider>
@@ -99,6 +95,11 @@
 </template>
 
 <script setup>
+import { useTheme } from 'vuetify/lib/composables/theme.mjs'
+
+
+const theme = useTheme()
+
 
 const nuxtMenu = ref([
   { title: 'Introduction to Nuxt', to: '/nuxt/introduction'},
@@ -185,16 +186,14 @@ const windowsMenu = ref([
   
 }
 
-
 .inline {
   display: inline;
 }
-/* 
 
-    padding: .6rem 0;
-    color: var(--text-body);
-    font-size: 1.1875em;
-    font-weight: 300;
-    
-*/
+.text-pink {
+  color: #F50057;
+  transition: border-bottom 5.4s ease, color 2.4s ease;
+}
+
+
 </style>

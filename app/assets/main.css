@@ -1,0 +1,12 @@
+/* .border-bottom {
+  border-bottom: 2px solid #F50057;
+  transition: border-bottom 2.4s ease, color 0.4s ease;
+ 
+}
+html.dark .border-bottom {
+  border-bottom-color: #F50057;  
+}
+
+html, body, #__nuxt, .v-application {
+  transition: background-color 0.4s ease, color 0.4s ease;
+} */
