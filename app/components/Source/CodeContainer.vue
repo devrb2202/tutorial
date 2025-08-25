@@ -1,10 +1,11 @@
 <template>
-  <v-container fluid>
+  <v-container fluid :id="id" class="pa-0">
+    <p class="text-h5 font-weight-bold">{{ routeTitle }}</p>
     <p class="text-subtitle-1 opacity-80">
       {{ details }}
     </p>
-  </v-container>
-  <v-card class="my-4" variant="flat">
+  
+  <v-card class="my-5 pa-0" variant="flat">
     <!-- Header -->
     <v-card-title class="d-flex justify-space-between align-center bg-grey-darken-3 py-2">
       <span class="text-caption">{{ title }}</span>
@@ -19,12 +20,14 @@
     
     <!-- Code Block -->
     <v-card-text class="pa-0">
-      <div class="bg-grey-darken-4 w-100 overflow-auto" style="height: 300px;">
-        <pre class="pa-4"><code v-html="highlighted"></code></pre>
+      <div class="bg-grey-darken-4 w-100 overflow-auto" style="max-height: 300px;">
+        <pre class="">
+          <code v-html="highlighted"></code>
+        </pre>
       </div>
     </v-card-text>
   </v-card>
-
+  </v-container>
   <!-- Snackbar -->
   <v-snackbar
     v-model="snackbar"
@@ -48,10 +51,12 @@ import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-css'
 
 const props = defineProps({
+  id: String,
+  routeTitle: String,
   sampleCode: { type: String, required: true },
   title: { type: String, default: 'Code Example' },
   language: { type: String, default: 'javascript' },
-  details: { type: String, default: 'lorem 2x sinta'}
+  details: { type: String, default: ''}
 })
 
 const snackbar = ref(false)

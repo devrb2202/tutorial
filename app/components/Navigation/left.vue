@@ -1,14 +1,18 @@
 <template>
   <v-container class="">
      <div class="d-flex justify-start align-center mb-2" >
-        <v-icon size="100">mdi-cast-education</v-icon>
+        <v-icon size="100">mdi-microsoft-visual-studio-code</v-icon>
         <div>
-           <p :class="`text-h5 ${theme.global.current.value.dark ? 'text-pink': 'none'}`" >Personal Documentation</p>
+           <p class="text-h6 opacity-80 font-weight-bold text-uppercase">I.T Engineer’s Handbook</p>
+           <!-- ${theme.global.current.value.dark ? 'text-pink': 'none'} -->
         </div>
       </div>
       <v-divider></v-divider>
       <div class="mt-2">
-        <p class="text-h5">Nuxt Fullstack</p>
+        <div class="d-flex mt-5 mb-5 align-center">
+          <v-icon>mdi-nuxt</v-icon>
+           <p class="text-h6 opacity-80 text-uppercase ml-1">Nuxt FullStack</p>
+        </div>
         <v-btn 
           variant="text" 
           :ripple="false" 
@@ -22,7 +26,10 @@
       </div>
 
       <div class="">
-        <p class="text-h5">Supabase</p>
+        <div class="d-flex mt-5 mb-5 align-center">
+          <v-icon>mdi-database</v-icon>
+           <p class="text-h6 opacity-80 text-uppercase ml-1">Supabase</p>
+        </div>
           <v-btn 
             variant="text" 
             :ripple="false" 
@@ -36,7 +43,10 @@
       </div>
 
       <div class="">
-        <p class="text-h5">Networking</p>
+        <div class="d-flex mt-5 mb-5 align-center">
+          <v-icon>mdi-lan</v-icon>
+           <p class="text-h6 opacity-80 text-uppercase ml-1">Networking</p>
+        </div>
           <v-btn 
             variant="text" 
             :ripple="false" 
@@ -49,7 +59,11 @@
       </div>
       
       <div class="">
-        <p class="text-h5">Windows Server</p>
+        <div class="d-flex mt-5 mb-5 align-center">
+          <v-icon>mdi-microsoft-windows</v-icon>
+          <p class="text-h6 opacity-80 text-uppercase ml-1">Windows Server</p>
+        </div>
+        
           <v-btn 
             variant="text" 
             :ripple="false" 
@@ -107,6 +121,7 @@ const nuxtMenu = ref([
   { title: 'Reusable components', to: '/nuxt/components'},
   { title: 'Creating layouts(shared UI)', to: '/nuxt/layouts'},
   { title: 'State Management', to: '/nuxt/state-management'},
+  { title: 'Middleware', to: '/nuxt/middleware'},
   { title: 'Data Fetching', to: '/nuxt/data-fetching'},
   { title: 'Composables', to: '/nuxt/composables'},
   { title: 'Deployment(Frontend)', to: '/nuxt/deployment'},

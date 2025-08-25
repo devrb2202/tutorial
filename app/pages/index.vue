@@ -1,12 +1,15 @@
 <template>
   <v-container>
     <v-row class="justify-center">
-      <v-col cols="10" sm="8">
+      <v-col cols="11" sm="8">
         <p class="text-h4 opacity-80 text-center">
-          Go from beginner to expert with our free Tech tutorials
+          "A Personal Developer’s Handbook – Errors, Solutions, and Lessons Learned"
         </p>
         <p class="text-subtitle-1 text-center mt-5">
-          Start learning the fundamental concepts of technologies, with examples, in the latest and most popular technologies.
+          This project is my personal learning documentation a growing collection of notes, errors I’ve encountered, and the solutions that worked. Instead of just following the happy path from tutorials, this handbook also highlights the common pitfalls, real-world debugging, and code snippets that solved them.
+        </p>
+        <p class="text-subtitle-1 text-center mt-5">
+          Whether you’re starting with Nuxt, Vue, Supabase, or exploring networking concepts, you’ll find practical examples, tested fixes, and a roadmap of what I’ve learned so far. What began as my own study guide is now being shaped into a resource that others can use to learn, avoid the same mistakes, and grow as developers.
         </p>
         <p class="text-h4 opacity-80 text-center mt-10">Tutorials</p>
         <div class="mt-5">

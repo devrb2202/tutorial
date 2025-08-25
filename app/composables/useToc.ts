@@ -3,12 +3,23 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 export const useToc = () => {
   const toc = {
-    '/': [
-      { label: 'What is Vue JS?', hash: '#sample01' },
-      { label: 'Why it’s needed?', hash: '#sample02' },
-      { label: 'What is an advantage?', hash: '#sample03' }
+     '/nuxt': [
+      { label: 'Managing Route', hash: '#route' },
+      { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
+      { label: 'Navigation bottom', hash: '#navigation' },
+      { label: 'Customize theme', hash:'#theme'},
+      { label: 'Escape Characters', hash: '#escape'},
+        { label: 'Managing Route', hash: '#route' },
+      { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
+      { label: 'Navigation bottom', hash: '#navigation' },
+      { label: 'Customize theme', hash:'#theme'},
+      { label: 'Escape Characters', hash: '#escape'},
+        { label: 'Managing Route', hash: '#route' },
+      { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
+      { label: 'Navigation bottom', hash: '#navigation' },
+      { label: 'Customize theme', hash:'#theme'},
+      { label: 'Escape Characters', hash: '#escape'}
     ],
-
     '/nuxt/introduction': [
       { label: 'What is Vue JS?', hash: '#sample01' },
       { label: 'Why it’s needed?', hash: '#sample02' },

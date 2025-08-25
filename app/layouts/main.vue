@@ -39,17 +39,24 @@
     <v-main class="">
       <v-container fluid>
           <v-row class="justify-start">
-
+              <!-- Content -->
               <v-col cols="12" sm="10">
                 <slot />
               </v-col>
-          
+              <!-- Right Side Navigation -->
               <v-col cols="2">
-                 <v-navigation-drawer v-model="mobileDrawer" width="250" location="right" v-if="hitRoute">
+                <!-- Desktop View Only-->
+                 <v-navigation-drawer 
+                    v-model="mobileDrawer" 
+                    width="250" 
+                    location="right" 
+                    v-if="hitRoute"
+                  >
                    <NavigationPageToc />
                  </v-navigation-drawer>
+              
               </v-col>
-              <!-- Navigation -->
+              <!-- Bottom Navigation -->
             <v-col cols="12" sm="10">
               <div class="d-flex justify-space-between">
                 <v-card 
@@ -92,13 +99,7 @@
                 
                   <v-icon size="40">mdi-chevron-right</v-icon>
                 </v-card>
-                <!-- <v-btn v-if="prevPage" :to="prevPage.href" variant="plain" prepend-icon="mdi-chevron-left" class="justify-start text-capitalize" size="large">
-                  {{ prevPage.title }}
-                </v-btn>
-            
-                <v-btn v-if="nextPage" :to="nextPage.href" variant="plain" append-icon="mdi-chevron-right" class="text-capitalize" size="large">
-                  {{ nextPage.title }}
-                </v-btn> -->
+             
               </div>
             
             </v-col>
@@ -111,36 +112,23 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useTheme } from 'vuetify/lib/composables/theme.mjs'
-
+//import { useTheme } from 'vuetify/lib/composables/theme.mjs'
+const { theme, toggleTheme } = useThemes()
 
 const drawer = ref(null)
 const mobileDrawer = ref(null)
 
 
-const theme = useTheme()
+// const theme = useTheme()
 
-// itago si pageToc kapag nasa path ng / or nasa indexpage
-// dynamic kahit ilang beses na cycle 
 const hitRoute = computed(() => route.path !== '/')
 
-// hindi sya recommended gamitin kasi for static lang ito gagana
-// function indexPath() {
-//     if(route.path !== '/'){
-//       hitRoute.value = true
-//     }
-//     
-   
-// }
 
-// onMounted(() => {
-//   indexPath()
-// })
 
-function toggleTheme(){
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+// function toggleTheme(){
+//   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
  
-}
+// }
 
 
 const pageOrder = [
