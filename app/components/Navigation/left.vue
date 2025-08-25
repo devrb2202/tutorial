@@ -1,16 +1,16 @@
 <template>
   <v-container class="">
      <div class="d-flex justify-start align-center mb-2" >
-        <v-icon size="100">mdi-microsoft-visual-studio-code</v-icon>
+        <v-icon size="100" color="pink-accent-3">mdi-microsoft-visual-studio-code</v-icon>
         <div>
-           <p class="text-h6 opacity-80 font-weight-bold text-uppercase">I.T Engineer’s Handbook</p>
+           <p class="text-h6 opacity-80 font-weight-bold text-uppercase">Developer’s Handbook</p>
            <!-- ${theme.global.current.value.dark ? 'text-pink': 'none'} -->
         </div>
       </div>
       <v-divider></v-divider>
       <div class="mt-2">
         <div class="d-flex mt-5 mb-5 align-center">
-          <v-icon>mdi-nuxt</v-icon>
+          <v-icon color="pink-accent-3">mdi-nuxt</v-icon>
            <p class="text-h6 opacity-80 text-uppercase ml-1">Nuxt FullStack</p>
         </div>
         <v-btn 
@@ -27,7 +27,7 @@
 
       <div class="">
         <div class="d-flex mt-5 mb-5 align-center">
-          <v-icon>mdi-database</v-icon>
+          <v-icon color="pink-accent-3">mdi-database</v-icon>
            <p class="text-h6 opacity-80 text-uppercase ml-1">Supabase</p>
         </div>
           <v-btn 
@@ -44,7 +44,7 @@
 
       <div class="">
         <div class="d-flex mt-5 mb-5 align-center">
-          <v-icon>mdi-lan</v-icon>
+          <v-icon color="pink-accent-3">mdi-lan</v-icon>
            <p class="text-h6 opacity-80 text-uppercase ml-1">Networking</p>
         </div>
           <v-btn 
@@ -60,7 +60,7 @@
       
       <div class="">
         <div class="d-flex mt-5 mb-5 align-center">
-          <v-icon>mdi-microsoft-windows</v-icon>
+          <v-icon color="pink-accent-3">mdi-microsoft-windows</v-icon>
           <p class="text-h6 opacity-80 text-uppercase ml-1">Windows Server</p>
         </div>
         
@@ -81,29 +81,7 @@
           <span class="text-body-2">
               &copy; {{ new Date().getFullYear() }} Open Source Project. All rights reserved.
           </span>
-          <!-- <v-btn 
-            text="github"
-            prepend-icon="mdi-github"
-            variant="outlined"
-            size="small"
-            color="green"
-          />
-          <v-btn 
-            text="facebook"
-            prepend-icon="mdi-facebook"
-            variant="outlined"
-            size="small"
-            color="blue"
-          />
-           <v-btn 
-            text="linkedin"
-            prepend-icon="mdi-linkedin"
-            variant="outlined"
-            size="small"
-            color="pink"
-          /> -->
-
-
+    
        </div>
   </v-container>
 </template>
