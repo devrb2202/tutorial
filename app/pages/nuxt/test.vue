@@ -1,51 +1,41 @@
 <template>
-  <div>
-    <Input
-      v-for="(input, index) in sample"
-      :key="index"
-      :placeholder="input.placeholder"
-      :type="input.type"
-      :model="input.model"
-    />
-    <button @click="test">login</button>
-
-    <ul v-for="(x, index) in store" :key="index">
-      <li>Username: {{ x.username }}</li>
-      <li>Password: {{ x.password }}</li>
-      <li>Date Creation: {{ x.date }}</li>
-    </ul>
-  </div>
+  <Lalagyan>
+    <template #left>
+      <h1>Advance Reusable Component</h1>
+      <v-btn>login</v-btn>
+      <v-text-field 
+        v-for="(x, index) in inputs"
+        :key="index"
+        :label="x.label"
+        :placeholder="x.placeholder"
+        :type="x.type"
+        :prepend-inner-icon="x.icon"
+        v-model="x.v_model"
+       
+      />
+    </template>
+  </Lalagyan>
+  
 </template>
 
-<script setup>
-const username = ref('')
-const password = ref('')
-const creation = ref('')
-const store = ref([])
+<script setup lang="ts">
 
-const sample = ref([
-  { placeholder: 'Username', type: 'text', model: username },
-  { placeholder: 'Password', type: 'password', model: password },
-  { placeholder: 'Date', type: 'date', model: creation },
+interface InputField {
+  label: string
+  placeholder: string
+  icon: string
+  type: string
+  v_model: string
+}
+
+const email = ref('')
+const password = ref('')
+
+const inputs = ref<InputField[]>([
+  { label: 'Username', placeholder: 'Username', icon: 'mdi-account', type: 'email', v_model: email.value },
+  { label: 'Password', placeholder: 'Password', icon: 'mdi-lock', type: 'password', v_model: password.value }
 ])
 
-function test() {
-  if (username.value.trim() && password.value.trim() && creation.value.trim()) {
-    store.value.push({
-      username: username.value,
-      password: password.value,
-      date: creation.value
-    })
-    alert('Account Registration Successfully')
-
-    // reset form
-    username.value = ''
-    password.value = ''
-    creation.value = ''
-  } else {
-    alert('Invalid!')
-  }
-}
 
 definePageMeta({
   layout: 'main'

@@ -75,7 +75,7 @@ const components = ref([
     {
         id: 'basic',
         routeTitle: '',
-        title: 'Sample Usage',
+        title: '~/pages/index.vue',
         details: ``,
         code: `
         <template>
@@ -86,20 +86,148 @@ const components = ref([
                 <Input placeholder="Date" type="date"/>
             </div>
         </template>
-
+        
         `
     },
     {
-        id: '',
-        title: '',
-        details: ``,
-        code: ``
+        id: 'advance',
+        routeTitle: 'Advance Reusable Component',
+        title: '~/components/Input.vue',
+        details: `Advance Reusable Component`,
+        code: `
+        <template>
+            <v-text-field
+                v-for="(x, index) in model"
+                :key="index"
+                :label="x.label"
+                :placeholder="x.placeholder"
+                :prepend-inner-icon="x.icon"
+                :type="x.type"
+                color="orange-darken-3"
+                variant="underlined"
+                v-model="x.v_model"
+            />
+        </template>
+
+        <script setup lang="ts">
+        interface TextFieldItem {
+            label: string
+            placeholder: string
+            icon: string
+            type: string
+            v_model: string
+        }
+
+        defineProps<{
+            model: TextFieldItem[]
+        }>()
+        <\/script>
+        `
     },
     {
-        id: '',
-        title: '',
+        id: 'advance',
+        title: '~/pages/index.vue',
         details: ``,
-        code: ``
+        code: `
+        <template>
+            <v-container>
+                <h1>Advance Reusable Component</h1>
+                <Input 
+                :model="inputs"
+                />
+            </v-container>
+        </template>
+
+        <script setup lang="ts">
+
+        interface InputField {
+            label: string
+            placeholder: string
+            icon: string
+            type: string
+            v_model: Ref<string>
+        }
+
+        const email = ref('')
+        const password = ref('')
+
+        const inputs = ref<InputField[]>([
+            { label: 'Username', placeholder: 'Username', icon: 'mdi-account', type: 'email', v_model: email },
+            { label: 'Password', placeholder: 'Password', icon: 'mdi-lock', type: 'password', v_model: password }
+        ])
+
+
+        definePageMeta({
+            layout: 'main'
+        })
+        <\script>
+        `
+    },
+    {
+        id: 'advance',
+        title: '~/components/Container.vue',
+        details: `Using Slot`,
+        code: `
+        <template>
+            <v-container fluid class="h-screen d-flex align-center bg-grey-lighten-3">
+                <v-row class="justify-center">
+                    <v-col cols="12" xs="12" sm="5" md="4" lg="3" xl="3" xxl="4">
+                        <v-container class="bg-white pa-16">
+                            <slot name="left"></slot>
+                        </v-container>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </template>
+        `
+    },
+    {
+        id: 'advance',
+        title: '~/pages/index.vue',
+        details: `Using Slot`,
+        code: `
+        <template>
+            <Container>
+                <template #left>
+                    <h1>Advance Reusable Component</h1>
+                    <v-btn>login</v-btn>
+                    <v-text-field 
+                        v-for="(x, index) in inputs"
+                        :key="index"
+                        :label="x.label"
+                        :placeholder="x.placeholder"
+                        :type="x.type"
+                        :prepend-inner-icon="x.icon"
+                        v-model="x.v_model"
+                    />
+                </template>
+            </Container>
+        </template>
+
+        <script setup lang="ts">
+
+        interface InputField {
+            label: string
+            placeholder: string
+            icon: string
+            type: string
+            v_model: string
+        }
+
+        const email = ref('')
+        const password = ref('')
+
+        const inputs = ref<InputField[]>([
+            { label: 'Username', placeholder: 'Username', icon: 'mdi-account', type: 'email', v_model: email.value },
+            { label: 'Password', placeholder: 'Password', icon: 'mdi-lock', type: 'password', v_model: password.value }
+        ])
+
+
+        definePageMeta({
+            layout: 'main'
+        })
+        <\/script>
+        `
     }
 ])
 

@@ -175,7 +175,7 @@ const windowsMenu = ref([
 }
 
 .v-btn:hover {
-  color: #DD2C00;
+  color: #F50057;
   
 }
 

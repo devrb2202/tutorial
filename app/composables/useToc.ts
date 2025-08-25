@@ -9,12 +9,12 @@ export const useToc = () => {
       { label: 'Navigation bottom', hash: '#navigation' },
       { label: 'Customize theme', hash:'#theme'},
       { label: 'Escape Characters', hash: '#escape'},
-        { label: 'Managing Route', hash: '#route' },
+      { label: 'Managing Route', hash: '#route' },
       { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
       { label: 'Navigation bottom', hash: '#navigation' },
       { label: 'Customize theme', hash:'#theme'},
       { label: 'Escape Characters', hash: '#escape'},
-        { label: 'Managing Route', hash: '#route' },
+      { label: 'Managing Route', hash: '#route' },
       { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
       { label: 'Navigation bottom', hash: '#navigation' },
       { label: 'Customize theme', hash:'#theme'},
@@ -28,6 +28,10 @@ export const useToc = () => {
     '/nuxt/create-page': [
       { label: 'Creating First Page', hash: '#create01' },
       { label: 'Nested Pages', hash: '#create02' }
+    ],
+     '/nuxt/components': [
+      { label: 'Basic Usage', hash: '#basic' },
+      { label: 'Advance Usage', hash: '#advance' }
     ]
   }
 
