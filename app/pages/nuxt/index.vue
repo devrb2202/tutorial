@@ -229,6 +229,7 @@ const content = ref([
         </template>
         `
     },
+    
     {
         title: '~/components/Navigation/Bottom.vue',
         details:[`Ito yung pinalit sa button inimprove lang yung design gagawin nalang din isa sa mga reusable component`],
@@ -292,7 +293,6 @@ const content = ref([
         <\/script>
         `
     },
-
     {
         id: 'theme',
         routeTitle: 'Customize theme with Local Storage setup',

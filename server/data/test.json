@@ -1,12 +1,108 @@
 [
   {
-    "id": "theme",
+    "id": "route",
+    "routeTitle": "Managing Route",
+    "title": "app/router.options.ts",
+    "details": [
+      "Gusto ko ihide yung mismong right side nav kapag tumugma sa / route o sa root kaya lang may error kasi sa unang beses lang sya gagana pero kapag nag back ka lilitaw sya ulit. Yung pinaka error pala ay dahil naka static sya kumbaga isang beses lang sya mag loload sa isang loop"
+    ],
+    "code": "//hindi sya recommended gamitin kasi for static lang ito gagana\n<script setup>\nconst hitRoute = ref(false)\nfunction indexPath() {\n    if(route.path !== '/'){\n      hitRoute.value = true\n    }\n}\n\nonMounted(() => {\n  indexPath()\n})\n</script>"
+  },
+   {
+    "id": "route",
+    "routeTitle": "",
     "title": "~/pages/index.vue",
-    "code": "\n<script setup lang=\"ts\">\nconst { theme, toggleTheme } = useTheme()\n<\/script>\n\n<template>\n    <v-btn @click=\"toggleTheme\">\n        Switch to {{ theme.global.name.value === 'dark' ? 'light' : 'dark' }}\n    </v-btn>\n</template>"
+    "details": [
+      "Ito yung solution para sa issue na yon yung static ay ginawang dynamic gamit yung computed() na method ng vue/nuxt. At kung mapapansin mo merong pageToc na nakalagay yan ay isa sa mga composables na ginawa ko para sa pag handle ng mga page route dynamically"
+    ],
+    "code": "\n<script setup>\n// itago si pageToc kapag nasa path ng / or nasa indexpage\n// dynamic kahit ilang beses na cycle \nconst hitRoute = computed(() => route.path !== '/')\n</script>"
+  },
+  {
+    "id": "route",
+    "title": "~/composables/useToc.vue",
+    "details": [
+      "logical composable para sa pag handle ng route dynamically meron ding mga added na extra feature pero di ko napansin na gumagana bale aalisin nalang yan soon"
+    ],
+    "code": "// composables/useToc.ts\nimport { ref, onMounted, onUnmounted } from 'vue'\n\nexport const useToc = () => {\nconst toc = {\n    '/nuxt': [\n    { label: 'Managing Route', hash: '#route' },\n    { label: 'Nuxt scroll', hash: '#nuxt-scroll' },\n    { label: 'Navigation bottom', hash: '#navigation' }\n    ],\n    '/nuxt/introduction': [\n    { label: 'What is Vue JS?', hash: '#sample01' },\n    { label: 'Why it’s needed?', hash: '#sample02' },\n    { label: 'What is an advantage?', hash: '#sample03' }\n    ],\n    '/nuxt/create-page': [\n    { label: 'Creating First Page', hash: '#create01' },\n    { label: 'Nested Pages', hash: '#create02' }\n    ]\n}\n\nconst active = ref<string | null>(null)\n\nconst setActiveSection = () => {\n    const sections = document.querySelectorAll<HTMLElement>('[id]')\n    let current: string | null = null\n\n    for (const el of sections) {\n    const rect = el.getBoundingClientRect()\n    if (rect.top <= 120) { // 120px offset para di agad mag-trigger\n        current = `#${el.id}`\n        }\n    }\n\n    active.value = current\n}\n\nonMounted(() => {\n    window.addEventListener('scroll', setActiveSection)\n    setActiveSection()\n})\n\nonUnmounted(() => {\n    window.removeEventListener('scroll', setActiveSection)\n})\n\nreturn { toc, active }\n}"
+  },
+  {
+    "id": "route",
+    "title": "~/components/Navigation/PageToc.vue",
+    "details": [
+      "Ito naman yung pinaka child component ng pageToc ginawa ko syang Reusable Components para mas mapabilis ang paggawa ng mga UI components, Compare sa pag manual bawat page bukod sa tipid sa oras mas readable at madali pang i-maintain"
+    ],
+    "code": "\n<!-- components/PageToc.vue -->\n<template>\n  <v-sheet v-if=\"sections.length\" class=\"pa-3\">\n    <!-- highlight active -->\n    <div class=\"d-flex mt-5 mb-5 align-center\">\n      <v-icon size=\"24\">mdi-sort-variant</v-icon>\n      <p class=\"text-h6 opacity-80 text-uppercase\">Contents</p>\n    </div>\n    <v-btn\n      class=\"justify-start text-capitalize\"\n      variant=\"plain\"\n      v-for=\"s in sections\"\n      :key=\"s.hash\"\n      :ripple=\"false\"\n      :to=\"route.path + s.hash\"\n      :color=\"active === s.hash ? 'primary' : undefined\"  \n      :text=\"s.label\"\n    />\n  </v-sheet>\n</template>\n\n<script setup>\nimport { useRoute } from 'vue-router'\nimport { useToc } from '~/composables/useToc'\n\nconst route = useRoute()\nconst { toc, active } = useToc()\n\nconst sections = computed(() => toc[route.path] || [])\n</script>"
+  },
+  {
+    "id": "nuxt-scroll",
+    "routeTitle": "Nuxt Scroll",
+    "title": "app/router.options.ts",
+    "details": [
+      "Use for mouse scrolling"
+    ],
+    "code": "\nimport type { RouterScrollBehavior } from 'vue-router'\n\nconst scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {\n    if (savedPosition) {\n        return savedPosition\n}\n\nif (to.hash) {\n    const el = document.querySelector(to.hash)\n        if (el) {\n        // taas ng AppBar/Navbar\n        const topOffset = 80 \n        const elementPosition = el.getBoundingClientRect().top + window.scrollY\n        return {\n            left: 0,\n            top: elementPosition - topOffset,\n            behavior: 'smooth'\n        }\n    }\n}\n\nreturn { left: 0, top: 0 }\n\n}\n\nexport default {\n    scrollBehavior\n}"
+  },
+  {
+    "id": "navigation",
+    "routeTitle": "Bottom Navigation Prev & Next Page",
+    "title": "navigation.vue",
+    "details": [
+      "Ito yung ginawa kong solution para doon sa bottom navigation meron kasi akong nilagay na route navigation para sa previous at next page, ngayon ang naging problema nung una ay manual kong nilalagay ang dalawang button sa bawat page na nag cause ng pag haba ng code at hindi sya magandang option, kaya gumawa ako ng isang dynamic navigation na mas logical gamit ang route function, kaya lang medyo technical sya mahirap intindihin kaya dapat kasama sa naka take note compare sa manual na inilalagay sa bawat pages"
+    ],
+    "code": "\n<template>\n    <v-btn \n        v-if=\"prevPage\" \n        :to=\"prevPage.href\" \n        variant=\"plain\" \n        prepend-icon=\"mdi-chevron-left\" \n        class=\"justify-start text-capitalize\" \n        size=\"large\"\n        :text=\"prevPage.title\"\n    />\n    \n    <v-btn \n        v-if=\"nextPage\" \n        :to=\"nextPage.href\" \n        variant=\"plain\" \n        append-icon=\"mdi-chevron-right\" \n        class=\"text-capitalize\" \n        size=\"large\"\n        :text=\"nextPage.title\"\n    />\n      \n</template>"
+  },
+  {
+    "title": "~/components/Navigation/Bottom.vue",
+    "details": [
+      "Ito yung pinalit sa button inimprove lang yung design gagawin nalang din isa sa mga reusable component"
+    ],
+    "code": "\n<div class=\"d-flex justify-space-between\">\n    <v-card \n        elevation=\"0\" \n        :class=\"`d-flex align-center \n        justify-center pa-2 justify-space-between\n        ${theme.global.current.value.dark ? 'card-button-border-1': 'card-button-border-2'}`\" \n        width=\"150\"\n        v-if=\"prevPage\" :to=\"prevPage.href\"\n    >\n        <v-icon size=\"40\">mdi-chevron-left</v-icon>\n        <div>\n            <p class=\"text-capitalize text-caption opacity-60\">\n                previous page\n            </p>\n            <p class=\"text-capitalize text-sm-subtitle-2 text-caption\">\n                {{ prevPage.title }}\n            </p>\n        </div>\n    </v-card>\n\n    <v-card \n        elevation=\"0\" \n        :class=\"`d-flex align-center\n        justify-center pa-2 justify-space-between\n        ${theme.global.current.value.dark ? 'card-button-border-1':'card-button-border-2'}`\" \n        width=\"150\"\n        v-if=\"nextPage\" :to=\"nextPage.href\"\n    >\n        <div>\n            <p class=\"text-capitalize text-caption opacity-60\">\n                next page\n            </p>\n            <p class=\"text-capitalize text-sm-subtitle-2 text-caption\">\n                {{ nextPage.title }}\n            </p>\n        </div>\n        <v-icon size=\"40\">mdi-chevron-right</v-icon>\n    </v-card>\n</div>"
+  },
+  {
+    "id": "navigation",
+    "title": "~/layouts/main.vue",
+    "details": [
+      "Ito yung function na ginawa ko para sa dynamic bottom navigation"
+    ],
+    "code": "\n<script setup>\nconst prevPage = computed(() =>\n\tcurrentIndex.value > 0 ? pageOrder[currentIndex.value - 1] : null\n)\nconst nextPage = computed(() =>\n\tcurrentIndex.value < pageOrder.length - 1\n\t\t? pageOrder[currentIndex.value + 1]\n\t\t: null\n)\n</script>"
+  },
+  {
+    "id": "theme",
+    "routeTitle": "Customize theme with Local Storage setup",
+    "title": "~/composables/useThemes.ts",
+    "details": [
+      "🌙 Bakit kailangan isave ang theme?\n\n\tUser Experience (UX):\n\tKapag nag set ng theme ang user (halimbawa nag dark mode), ayaw nila na mawala kapag nag refresh sila o lumipat ng page.\n\n\tConsistency:\n\tWithout saving, babalik lagi sa default (light/dark) every refresh. Ang localStorage ang nagsisigurado na persistent ang choice ng user.\n\n\tPerformance:\n\tHindi na kailangan ulit mag detect o mag compute sa bawat page load — diretsong babasahin lang ang naka-save na value.\n\n\tPersonalization:\n\tPinaparamdam nito sa user na ang site ay nakakabase sa kanilang preference, hindi lang sa default settings."
+    ],
+    "code": "// /composables/useTheme.ts\n// import { useVuetify } from 'vuetify'\n\nimport { useTheme } from \"vuetify\"\n\nexport const useThemes = () => {\n\tconst theme = useTheme()\n\n\t// Load from localStorage on mounted\n\tonMounted(() => {\n\t\tconst savedTheme = localStorage.getItem('theme')\n\t\tif (savedTheme) {\n\t\t\ttheme.global.name.value = savedTheme\n\t\t}\n\t})\n\n\tfunction toggleTheme() {\n\t\ttheme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'\n\t\tlocalStorage.setItem('theme', theme.global.name.value)\n\t}\n\n\treturn { theme, toggleTheme }\n}"
   },
   {
     "id": "theme",
     "title": "~/pages/index.vue",
     "code": "\n<script setup lang=\"ts\">\nconst { theme, toggleTheme } = useTheme()\n<\/script>\n\n<template>\n    <v-btn @click=\"toggleTheme\">\n        Switch to {{ theme.global.name.value === 'dark' ? 'light' : 'dark' }}\n    </v-btn>\n</template>"
+  },
+  {
+    "id": "escape",
+    "routeTitle": "Usage of Escape Characters",
+    "title": "Escape",
+    "details": [
+      "\n        Context at Benefits ng Paggamit ng Escape Character\n        Ano ang Escape Character?\n        Ang escape character ay isang special character na nagpapahiwatig na ang kasunod na character ay dapat bigyan ng ibang interpretation kaysa sa karaniwang meaning nito.\n        Sa JavaScript, ang backslash  ang karaniwang escape character.\n        "
+    ],
+    "code": "\n// Single quote sa loob ng single quotes\nconst message = 'It\\'s a beautiful day';\n\n// Double quotes sa loob ng double quotes\nconst quote = \"He said, \\\"Hello World!\\\"\";\n\n"
+  },
+  {
+    "id": "counter",
+    "routeTitle": "Loop Counter",
+    "title": "simple solution",
+    "details": [
+      "Ang benefit ng paggamit ng index + 1 style ay:\n\n\t🎯 Stability & Predictability\n\tHindi naaapektuhan ng re-rendering - laging tama ang numbering\n\tConsistent kahit magbago ang data o mag-trigger ng re-render",
+      "⚡ Performance\n\tWalang unnecessary reactivity - hindi nagti-trigger ng re-render\n\tMas mabilis kesa gumamit ng reactive variable para sa numbering",
+      "🛠️ Simplicity\n\tLess code - hindi na kailangan ng separate ref/computed\n\tDirect mapping - straight to the point ang logic",
+      "🔄 Maintainability\n\tEasy to understand - kitang-kita agad ang logic\n\tNo side effects - walang hidden behavior na pwedeng mag-cause ng bug",
+      "💡 Real-world Scenario:\n\tKapag may:\n\t• Hot reload during development\n\t• Data updates from API\n\t• Route changes sa Nuxt\n\t• Component re-renders",
+      "Ang index + 1 approach ay laging magdi-display ng tamang number, habang ang reactive counter ay pwedeng magkaroon ng unexpected behavior.",
+      "🏆 Bottom Line:\n\tGamitin ang index + 1 para sa simple, stable, at efficient na numbering na hindi apektado ng Vue's reactivity system."
+    ],
+    "code": "\n<template>\n\t<p class=\"text-h5 opacity-80\">⚖️ Nuxt Development Rules</p>\n\t<v-container fluid \n\t\tv-for=\"(x, index) in content\" \n\t\t:key=\"index\"\n\t>\n\t\t<p class=\"text-subtitle-1\">{{ index+1 }}. {{ x.title }}</p>\n\t\t<p class=\"text-subtitle-1\">{{ x.rule }}</p>\n\t\t<p class=\"text-subtitle-1\">{{ x.hints }}</p>\n\t\t<v-card>\n\t\t\t<v-card-text>\n\t\t\t\t<p class=\"text-subtitle-1\" v-for=\"(option, optionsIndex) in x.options\" :key=\"optionsIndex\">\n\t\t\t\t\t{{ optionsIndex+1 }}. {{ option }}\n\t\t\t\t</p>\n\t\t\t</v-card-text>\n\t\t</v-card>\n\t</v-container>\n</template>"
   }
+
 ]
