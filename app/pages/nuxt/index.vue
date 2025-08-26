@@ -23,9 +23,9 @@ const content = ref([
         id: 'route',
         routeTitle: 'Managing Route',
         title: 'app/router.options.ts',
-        details:`Gusto ko ihide yung mismong right side nav kapag tumugma sa / route o sa root kaya lang may error
+        details:[`Gusto ko ihide yung mismong right side nav kapag tumugma sa / route o sa root kaya lang may error
         kasi sa unang beses lang sya gagana pero kapag nag back ka lilitaw sya ulit. Yung pinaka error pala ay dahil
-        naka static sya kumbaga isang beses lang sya mag loload sa isang loop`,
+        naka static sya kumbaga isang beses lang sya mag loload sa isang loop`],
         code: `
        
         //hindi sya recommended gamitin kasi for static lang ito gagana
@@ -47,9 +47,9 @@ const content = ref([
         id: 'route',
         routeTitle:'',
         title: '~/pages/index.vue',
-        details: `Ito yung solution para sa issue na yon yung static ay ginawang dynamic 
+        details: [`Ito yung solution para sa issue na yon yung static ay ginawang dynamic 
         gamit yung computed() na method ng vue/nuxt. At kung mapapansin mo merong pageToc na nakalagay yan
-        ay isa sa mga composables na ginawa ko para sa pag handle ng mga page route dynamically`,
+        ay isa sa mga composables na ginawa ko para sa pag handle ng mga page route dynamically`],
         code: `
         <script setup>
         // itago si pageToc kapag nasa path ng / or nasa indexpage
@@ -62,8 +62,8 @@ const content = ref([
     {
         id: 'route',
         title: '~/composables/useToc.vue',
-        details: `logical composable para sa pag handle ng route dynamically meron ding mga added na extra
-        feature pero di ko napansin na gumagana bale aalisin nalang yan soon`,
+        details: [`logical composable para sa pag handle ng route dynamically meron ding mga added na extra
+        feature pero di ko napansin na gumagana bale aalisin nalang yan soon`],
         code: `
         // composables/useToc.ts
         import { ref, onMounted, onUnmounted } from 'vue'
@@ -119,9 +119,9 @@ const content = ref([
     {
         id: 'route',
         title: '~/components/Navigation/PageToc.vue',
-        details:`Ito naman yung pinaka child component ng pageToc ginawa ko syang Reusable Components 
+        details:[`Ito naman yung pinaka child component ng pageToc ginawa ko syang Reusable Components 
         para mas mapabilis ang paggawa ng mga UI components, Compare sa pag manual bawat page bukod sa tipid sa oras
-        mas readable at madali pang i-maintain`,
+        mas readable at madali pang i-maintain`,],
         code:`
         <!-- components/PageToc.vue -->
         <template>
@@ -145,7 +145,6 @@ const content = ref([
         </v-sheet>
         </template>
 
-
         <script setup>
         import { useRoute } from 'vue-router'
         import { useToc } from '~/composables/useToc'
@@ -154,8 +153,6 @@ const content = ref([
         const { toc, active } = useToc()
 
         const sections = computed(() => toc[route.path] || [])
-
-
 
         <\/script>
         
@@ -166,7 +163,7 @@ const content = ref([
         id: 'nuxt-scroll',
         routeTitle: 'Nuxt Scroll',
         title: 'app/router.options.ts',
-        details: `Use for mouse scrolling`,
+        details: [`Use for mouse scrolling`],
         code: ` 
         import type { RouterScrollBehavior } from 'vue-router'
 
@@ -201,12 +198,12 @@ const content = ref([
         id: 'navigation',
         routeTitle: 'Bottom Navigation Prev & Next Page',
         title: 'navigation.vue',
-        details:`Ito yung ginawa kong solution para doon sa bottom navigation meron kasi akong nilagay
+        details:[`Ito yung ginawa kong solution para doon sa bottom navigation meron kasi akong nilagay
         na route navigation para sa previous at next page, ngayon ang naging problema nung una ay manual kong
         nilalagay ang dalawang button sa bawat page na nag cause ng pag haba ng code at hindi sya magandang option,
         kaya gumawa ako ng isang dynamic navigation na mas logical gamit ang route function, kaya lang medyo technical sya 
         mahirap intindihin kaya dapat kasama sa naka take note compare sa manual na inilalagay sa bawat pages
-        `,
+        `],
         code: `
         <template>
             <v-btn 
@@ -234,7 +231,7 @@ const content = ref([
     },
     {
         title: '~/components/Navigation/Bottom.vue',
-        details:`Ito yung pinalit sa button inimprove lang yung design gagawin nalang din isa sa mga reusable component`,
+        details:[`Ito yung pinalit sa button inimprove lang yung design gagawin nalang din isa sa mga reusable component`],
         code:`
         <div class="d-flex justify-space-between">
             <v-card 
@@ -281,7 +278,7 @@ const content = ref([
     {
         id: 'navigation',
         title: '~/layouts/main.vue',
-        details:`Ito yung function na ginawa ko para sa dynamic bottom navigation`,
+        details:[`Ito yung function na ginawa ko para sa dynamic bottom navigation`],
         code: `
         <script setup>
         const prevPage = computed(() =>
@@ -300,7 +297,7 @@ const content = ref([
         id: 'theme',
         routeTitle: 'Customize theme with Local Storage setup',
         title: '~/composables/useThemes.ts',
-        details: `🌙 Bakit kailangan isave ang theme?
+        details: [`🌙 Bakit kailangan isave ang theme?
         User Experience (UX):
         Kapag nag set ng theme ang user (halimbawa nag dark mode), ayaw nila na mawala kapag nag refresh sila o lumipat ng page.
 
@@ -313,7 +310,7 @@ const content = ref([
         Personalization:
         Pinaparamdam nito sa user na ang site ay nakakabase sa kanilang preference, hindi lang sa default settings.
         
-        `,
+        `],
         code: `
         // /composables/useTheme.ts
         // import { useVuetify } from 'vuetify'
@@ -360,12 +357,12 @@ const content = ref([
         id: 'escape',
         routeTitle: 'Usage of Escape Characters',
         title: 'Escape',
-        details: `
+        details: [`
         Context at Benefits ng Paggamit ng Escape Character
         Ano ang Escape Character?
         Ang escape character ay isang special character na nagpapahiwatig na ang kasunod na character ay dapat bigyan ng ibang interpretation kaysa sa karaniwang meaning nito.
         Sa JavaScript, ang backslash  ang karaniwang escape character.
-        `,
+        `],
         code: `
         // Single quote sa loob ng single quotes
         const message = 'It\\'s a beautiful day';
@@ -374,10 +371,69 @@ const content = ref([
         const quote = "He said, \\"Hello World!\\"";
         
         `
-
+    },
+    {
+        id: 'counter',
+        routeTitle: 'Loop Counter',
+        title: 'simple solution',
+        details: [
+            `
+            Ang benefit ng paggamit ng index + 1 style ay:
+            🎯 Stability & Predictability
+            Hindi naaapektuhan ng re-rendering - laging tama ang numbering
+            Consistent kahit magbago ang data o mag-trigger ng re-render`,
+            `
+            ⚡ Performance
+            Walang unnecessary reactivity - hindi nagti-trigger ng re-render
+            Mas mabilis kesa gumamit ng reactive variable para sa numbering`,
+            `
+            🛠️ Simplicity
+            Less code - hindi na kailangan ng separate ref/computed
+            Direct mapping - straight to the point ang logic`,
+            `
+            🔄 Maintainability
+            Easy to understand - kitang-kita agad ang logic
+            No side effects - walang hidden behavior na pwedeng mag-cause ng bug
+            `,
+            `
+            💡 Real-world Scenario:
+            Kapag may:
+            Hot reload during development
+            Data updates from API
+            Route changes sa Nuxt
+            Component re-renders`,
+            `
+            Ang index + 1 approach ay laging magdi-display ng tamang number, habang ang reactive counter ay pwedeng magkaroon ng unexpected behavior.
+            `,
+            `
+            🏆 Bottom Line:
+            Gamitin ang index + 1 para sa simple, stable, at efficient na numbering na hindi apektado ng Vue's reactivity system.
+            `
+        ]
+        ,
+        code: 
+        `
+        <template>
+            <p class="text-h5 opacity-80">⚖️ Nuxt Development Rules</p>
+            <v-container fluid 
+                v-for="(x, index) in content" 
+                :key="index"
+            >
+                <p class="text-subtitle-1">{{ index+1 }}. {{ x.title }}</p>
+                <p class="text-subtitle-1">{{ x.rule }}</p>
+                <p class="text-subtitle-1">{{ x.hints }}</p>
+                <v-card>
+                    <v-card-text>
+                    <p class="text-subtitle-1" v-for="(option, optionsIndex) in x.options" :key="optionsIndex">
+                        {{ optionsIndex+1 }}. {{ option }}
+                    </p>
+                    </v-card-text>
+                </v-card>
+            </v-container>
+        </template>
+        `
     }
 ])
-
 
 
 definePageMeta({

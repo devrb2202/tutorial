@@ -9,16 +9,8 @@ export const useToc = () => {
       { label: 'Navigation bottom', hash: '#navigation' },
       { label: 'Customize theme', hash:'#theme'},
       { label: 'Escape Characters', hash: '#escape'},
-      { label: 'Managing Route', hash: '#route' },
-      { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
-      { label: 'Navigation bottom', hash: '#navigation' },
-      { label: 'Customize theme', hash:'#theme'},
-      { label: 'Escape Characters', hash: '#escape'},
-      { label: 'Managing Route', hash: '#route' },
-      { label: 'Nuxt scroll', hash: '#nuxt-scroll' },
-      { label: 'Navigation bottom', hash: '#navigation' },
-      { label: 'Customize theme', hash:'#theme'},
-      { label: 'Escape Characters', hash: '#escape'}
+      { label: 'Loop Counter', hash: '#counter'},
+     
     ],
     '/nuxt/introduction': [
       { label: 'What is Vue JS?', hash: '#sample01' },

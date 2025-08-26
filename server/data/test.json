@@ -1,0 +1,12 @@
+[
+  {
+    "id": "theme",
+    "title": "~/pages/index.vue",
+    "code": "\n<script setup lang=\"ts\">\nconst { theme, toggleTheme } = useTheme()\n<\/script>\n\n<template>\n    <v-btn @click=\"toggleTheme\">\n        Switch to {{ theme.global.name.value === 'dark' ? 'light' : 'dark' }}\n    </v-btn>\n</template>"
+  },
+  {
+    "id": "theme",
+    "title": "~/pages/index.vue",
+    "code": "\n<script setup lang=\"ts\">\nconst { theme, toggleTheme } = useTheme()\n<\/script>\n\n<template>\n    <v-btn @click=\"toggleTheme\">\n        Switch to {{ theme.global.name.value === 'dark' ? 'light' : 'dark' }}\n    </v-btn>\n</template>"
+  }
+]

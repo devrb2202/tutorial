@@ -1,43 +1,26 @@
 <template>
-  <Lalagyan>
-    <template #left>
-      <h1>Advance Reusable Component</h1>
-      <v-btn>login</v-btn>
-      <v-text-field 
-        v-for="(x, index) in inputs"
+  <div v-if="pending">Loading...</div>
+  <div v-else-if="error">Failed to load data</div>
+    <div v-else>
+      <SourceCodeContainer
+        v-for="(x, index) in content"
         :key="index"
-        :label="x.label"
-        :placeholder="x.placeholder"
-        :type="x.type"
-        :prepend-inner-icon="x.icon"
-        v-model="x.v_model"
-       
+        :id="x.id"
+        :routeTitle="x.routeTitle"
+        :title="x.title"
+        :details="x.details"
+        :sampleCode="x.code"
+        language="javascript"
       />
-    </template>
-  </Lalagyan>
-  
+    </div>
 </template>
 
-<script setup lang="ts">
 
-interface InputField {
-  label: string
-  placeholder: string
-  icon: string
-  type: string
-  v_model: string
-}
-
-const email = ref('')
-const password = ref('')
-
-const inputs = ref<InputField[]>([
-  { label: 'Username', placeholder: 'Username', icon: 'mdi-account', type: 'email', v_model: email.value },
-  { label: 'Password', placeholder: 'Password', icon: 'mdi-lock', type: 'password', v_model: password.value }
-])
-
+<script setup>
+const { data: content, pending, error } = await useFetch('/api/test')
 
 definePageMeta({
   layout: 'main'
 })
+
 </script>

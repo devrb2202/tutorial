@@ -1,41 +1,122 @@
 <template>
-   
-    <v-container id="sample01">
-      <p class="text-h5">Sample Number 1</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae accusantium quis rem blanditiis mollitia, natus qui tempore illum quia nemo ipsa eum nam expedita ratione dolore quisquam velit dolor libero harum adipisci, vel officia maiores. Est rem nostrum impedit excepturi quo, laborum assumenda provident mollitia blanditiis! Itaque necessitatibus excepturi maiores.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum id aspernatur fugit necessitatibus natus maiores dolor nam eligendi cumque facere, nisi nemo officia distinctio accusamus, odit temporibus, a atque assumenda veniam. Nihil debitis asperiores tempora et sapiente ipsum numquam maxime consequatur cum hic molestias ipsam natus vel, nemo ullam aut assumenda deserunt cupiditate! Commodi possimus sit hic, nulla beatae eaque assumenda ut, optio labore consectetur ducimus? Non recusandae temporibus maiores magnam voluptate ad aut quos quibusdam, dicta asperiores! Consectetur, quod molestias, natus provident dolore ipsam laudantium atque quidem, laborum omnis aliquid id tempora odio est sint vero ipsa quo. Autem doloremque porro magni assumenda minus sed nam impedit doloribus tempora eligendi, quod animi numquam beatae provident consectetur enim molestias nihil sapiente adipisci placeat neque? Reiciendis, autem sunt. Earum nihil facilis fugiat obcaecati nostrum saepe cupiditate enim minima optio voluptatibus laborum ullam fuga consequatur cumque hic dignissimos, id voluptatem suscipit. Assumenda odit voluptate voluptatum amet quia distinctio architecto eum tempora, qui impedit dolor unde illum nostrum exercitationem eius placeat. Explicabo illo libero beatae? Officiis, odit vel blanditiis vero voluptatum eveniet nobis itaque doloremque possimus quibusdam voluptas a voluptatibus impedit dolore qui dolor aliquid, mollitia harum atque culpa ipsam. Quo laudantium id totam explicabo aut commodi obcaecati, quisquam modi dolore in, dolor ad pariatur earum, vitae perspiciatis rerum minus adipisci fuga reiciendis officia laborum dolorem! Praesentium repellat quas eius voluptates qui, expedita hic quisquam officia recusandae fugit totam! Quisquam facere voluptatum dignissimos molestias, illo cumque soluta repellat tenetur, minima sunt laborum cum eaque alias, blanditiis expedita commodi dolores! Beatae placeat officiis, cumque aperiam repudiandae distinctio quis ipsa accusantium quaerat velit, architecto mollitia dolores nulla? Modi autem, nemo rerum facere, quisquam possimus minus itaque ipsa sit officiis quasi praesentium labore beatae porro impedit quas similique adipisci voluptatem. Fuga inventore culpa nemo reiciendis ullam voluptas! Accusamus, fugiat est, odio possimus fuga ab similique voluptatibus minima nesciunt cupiditate laboriosam cum odit nihil exercitationem eum magnam nulla. Rerum vitae illum eum possimus fugit repellat cum, non accusamus porro voluptatibus! Magni corrupti quibusdam nostrum laudantium mollitia iusto sed, aut nesciunt. Voluptatibus, assumenda! Reiciendis, ipsam perferendis? Nesciunt molestiae illo voluptatum aperiam nihil magnam repellat dolores, eius, optio deserunt, provident pariatur officiis quidem. Debitis ipsum illo rerum nemo in aliquam dignissimos iste possimus perferendis expedita, doloremque repellat? Deleniti quod facilis aut possimus cupiditate consequatur totam quisquam minima distinctio assumenda quo reiciendis quae ducimus impedit alias officiis, id sed voluptatibus animi repellendus quasi minus fuga incidunt qui. Illo fugiat veniam cum amet at, culpa, qui suscipit iusto ipsam corrupti quidem maiores incidunt reprehenderit dignissimos error deserunt similique? Amet nihil reiciendis atque debitis dolorum illo. In ratione veniam magnam omnis, quibusdam quidem iusto exercitationem obcaecati excepturi quam? Laudantium dolorem voluptates repellat distinctio nam unde cupiditate quibusdam mollitia recusandae, eaque, eveniet consectetur dicta ad quas itaque, nesciunt nemo vel aperiam rerum fugiat dignissimos maxime quos accusantium. Aperiam numquam facere amet commodi, molestiae dolore doloremque ratione omnis minus sint pariatur saepe enim tempore. Rerum, cupiditate dolor? Possimus aspernatur soluta dolorum perferendis iste totam?
-      </p>
-    </v-container>
-    <v-container id="sample02">
-     <p class="text-h5">Sample Number 2</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae accusantium quis rem blanditiis mollitia, natus qui tempore illum quia nemo ipsa eum nam expedita ratione dolore quisquam velit dolor libero harum adipisci, vel officia maiores. Est rem nostrum impedit excepturi quo, laborum assumenda provident mollitia blanditiis! Itaque necessitatibus excepturi maiores.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae officiis corrupti ab nobis, magnam quod saepe natus consectetur nam numquam eaque rem tenetur voluptas sed nostrum repellendus laborum error doloribus minus in pariatur repellat sapiente ipsam. Impedit, quia. Consectetur, at architecto natus quas maiores totam laboriosam iusto tempore nisi voluptates quae corporis aliquid distinctio porro! Sequi placeat dolore quas officia hic corporis quam optio excepturi itaque. Velit tenetur repellendus expedita voluptatem consequuntur, reprehenderit aperiam dolorem voluptates culpa animi, dolorum, nesciunt corrupti nobis veritatis ut unde consectetur. Repudiandae nulla officiis minus deserunt similique eligendi veniam, inventore quas quis placeat quo fugiat tempora praesentium, aliquam ratione quia rem? Maxime, eaque consectetur blanditiis placeat, voluptas reiciendis asperiores rerum repudiandae alias corrupti culpa? Modi esse debitis repellat quam pariatur necessitatibus numquam optio error dolores, assumenda quos temporibus quidem molestiae officiis nesciunt praesentium adipisci nemo blanditiis voluptate hic? Numquam dignissimos architecto corporis, ipsam earum veritatis ab repellat pariatur inventore, tempora esse nam. Tempore quam maxime nobis ipsum? Ullam quasi quam enim sint numquam pariatur, quidem distinctio voluptatibus soluta quaerat et veritatis, officia illo sed dicta labore repudiandae, iste nulla reprehenderit! Obcaecati neque fuga, nulla eveniet voluptates aut ab nostrum voluptate, autem, temporibus modi debitis omnis.
-    </p>
+  <p class="text-h5 opacity-80">⚖️ Nuxt Development Rules</p>
+  <v-container fluid 
+    v-for="(x, index) in content" 
+    :key="index"
+    
+  >
+      <p class="text-subtitle-1">{{ index+1 }}. {{ x.title }}</p>
+      <p class="text-subtitle-1">{{ x.rule }}</p>
+      <p class="text-subtitle-1">{{ x.hints }}</p>
+      <v-card>
+        <v-card-text>
+          <p class="text-subtitle-1" v-for="(option, optionsIndex) in x.options" :key="optionsIndex">
+            {{ optionsIndex+1 }}. {{ option }}
+          </p>
+        </v-card-text>
+      </v-card>
+  
   </v-container>
-  <v-container id="sample03">
-     <p class="text-h5">Sample Number 3</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae accusantium quis rem blanditiis mollitia, natus qui tempore illum quia nemo ipsa eum nam expedita ratione dolore quisquam velit dolor libero harum adipisci, vel officia maiores. Est rem nostrum impedit excepturi quo, laborum assumenda provident mollitia blanditiis! Itaque necessitatibus excepturi maiores.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim earum nostrum dolores optio incidunt eveniet consequatur cumque aut, veritatis, vitae deleniti soluta dolor maxime suscipit cum vel eum officiis reiciendis ut ducimus nisi ad! Nemo numquam sequi odit velit praesentium. Animi voluptatibus a totam porro dolorum obcaecati et nobis nulla autem tempore molestiae fuga, laudantium doloremque sapiente itaque incidunt tempora soluta? Nesciunt cumque debitis dolorum blanditiis minus hic aspernatur provident numquam natus praesentium veniam quae, nostrum placeat, officiis enim ratione commodi quisquam dolores? Perspiciatis sed nisi eligendi consectetur! Numquam incidunt soluta odio et! Impedit distinctio quidem voluptatem, veritatis repellendus doloremque in cupiditate aut cumque voluptate eaque numquam reiciendis, voluptatum laudantium officiis totam sit omnis earum quam delectus alias iusto architecto velit? Deserunt, consectetur? Quod ipsum, et natus ipsam illum, asperiores fugit ullam sequi sapiente nobis odio maiores? Perspiciatis, nesciunt? Delectus unde repellendus non repudiandae dicta temporibus, tempore rem corporis distinctio eaque libero quisquam sapiente necessitatibus blanditiis qui cumque ullam culpa dignissimos. A voluptatum veritatis quas corporis quos sint, error hic debitis vero ipsa magni reprehenderit corrupti laudantium ut, laboriosam ad quis molestias ipsam voluptatibus iure ipsum quibusdam assumenda. Repellendus, provident recusandae illo vitae maxime fugit excepturi dolorem dicta quia quisquam unde repellat, optio consequuntur iusto incidunt nam voluptate! In hic ab deserunt consequuntur dolore dicta? Rerum quibusdam vitae saepe quasi, fugiat aliquam consectetur voluptatum a minima vel quis voluptas? Consectetur labore sequi provident, dolore, iusto earum dignissimos quisquam ab saepe nulla tempore vel quos, eius error atque! Mollitia quasi perferendis, nostrum quibusdam ipsam fugiat rerum perspiciatis minima praesentium deserunt nihil sunt voluptates, aspernatur ut soluta voluptatum consectetur nulla eligendi veniam doloremque ullam enim reiciendis accusamus. Ex magnam vel, voluptatum autem magni illum sunt necessitatibus qui quis harum sequi veniam unde aperiam iste a eligendi eaque nobis quibusdam! Velit, ratione possimus! Itaque deleniti enim voluptatem totam nesciunt magni commodi laborum eaque alias, nemo impedit praesentium minus, tenetur officiis placeat laudantium quia nam dicta omnis molestiae architecto quaerat quam. Optio et hic, voluptatum aliquam, magnam, earum est odio qui numquam itaque natus. Quos similique quasi a cupiditate dolore exercitationem rem voluptas excepturi iusto veritatis aperiam pariatur et, voluptatibus sed minima architecto aliquam deleniti libero fugiat aut inventore nobis? Neque nobis porro necessitatibus nesciunt atque harum repellendus possimus, aliquam reprehenderit aut laboriosam repudiandae tenetur quas odit dolor! Doloremque nihil vero, corporis facere molestiae nesciunt ea placeat labore dicta explicabo unde commodi quia nostrum in pariatur porro consectetur tempore. At quisquam tempora, obcaecati magni eligendi quo excepturi itaque consequuntur. Porro illum assumenda doloremque sed architecto tempore! Magni, non ea expedita vero sunt laborum recusandae sapiente, id unde neque ut quo ducimus molestiae adipisci delectus. Dolore impedit nostrum dicta commodi minima error quam pariatur natus veritatis culpa ex facere magni minus quis, architecto officia rem eos eligendi. Voluptas modi iure amet provident vero, at, praesentium atque repellat, officiis magni consectetur quaerat quasi illo nam voluptatibus! Excepturi tempore possimus libero eveniet delectus fuga velit, perferendis aliquid reiciendis. Perspiciatis laborum iste dicta accusamus esse! Commodi velit tempore temporibus vel esse! Sequi, at? A et aliquam distinctio nesciunt ab, esse perspiciatis quibusdam vero facere veritatis animi ducimus reprehenderit magnam possimus obcaecati perferendis laborum voluptatem repellendus praesentium, minus blanditiis! Sapiente adipisci facere architecto repudiandae laboriosam omnis possimus similique doloremque animi eum a, aut iste molestias blanditiis, vitae, provident itaque temporibus voluptate ut est sint distinctio iusto! Vitae consequatur labore quibusdam, consequuntur fugit ad pariatur animi incidunt facilis eos quos. Doloribus id porro aspernatur fuga aliquid veritatis aliquam placeat, quisquam, autem voluptatum laboriosam est. Eaque odio, voluptate nostrum amet vel eligendi eos atque enim sed non incidunt delectus corrupti mollitia dolor provident, aspernatur itaque? Quisquam molestias dolor eos autem commodi illo voluptate, assumenda voluptatem minima corporis magnam neque distinctio, omnis cumque optio corrupti in doloremque pariatur ipsum nam, culpa tenetur similique veritatis saepe? Natus cumque enim porro minima, laudantium nam, reiciendis eum quis, quaerat distinctio accusantium optio! Sit ea maxime tempore optio quasi aspernatur explicabo reiciendis officiis rem quam corrupti, architecto placeat dicta doloribus eos voluptatem ab dolor? Sapiente saepe voluptatem cupiditate inventore sed minus, molestiae reiciendis impedit eum nam quod sunt labore atque similique consequatur vel fuga quas delectus officiis quam. Expedita soluta ducimus ipsum reiciendis sint quasi repellat.
-    </p>
-</v-container>
-        
-          <!-- Hidden on mobile view -->
-          <!-- <v-col cols="12" sm="2">
-            <v-sheet>
-              <v-btn variant="plain" :ripple="false" to="/nuxt/introduction#sample01">What is vue js?</v-btn>
-              <v-btn variant="plain" :ripple="false" to="/nuxt/introduction#sample02">Why its needed?</v-btn>
-              <v-btn variant="plain" :ripple="false" to="/nuxt/introduction#sample03">What is an advantage?</v-btn>
-            </v-sheet>
-          </v-col> -->
-          
-     
+ 
 </template>
 
 <script setup>
 
 
+
+const content = ref([
+  { 
+   title: 'Reusable Components',
+   rule: `🔑 Rule: Gumawa lang ng reusable component kapag paulit-ulit ang UI o logic, at hindi na efficient na kopya-paste.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Gagamitin ko ba ito ng higit sa 2-3 beses sa iba't ibang page?`,
+    `Pareho lang ba lagi ang layout/design pero iba-iba ang data?`,
+    `Kung baguhin ko ito sa isang lugar, kailangan ko bang baguhin din sa lahat?`,
+    `Nagiging mahaba ba yung template dahil sa duplication?`,
+    `Mas lilinaw ba ang structure ng project kung hiwalay ko ito?`
+   ],
+  },
+  { 
+   title: 'State Management (Pinia/Vuex/Composable)',
+   rule: `🔑 Rule: Gumamit ng state management kung may data na kailangan i-share sa maraming component/page.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Kailangan ba ng parehong data sa 2 o higit pang component?`,
+    `Mawawala ba ang data kapag nagpalit ng route kung hindi naka-store?`,
+    `Frequent ba ang update ng data (ex: user auth, cart, theme)?`,
+    `Hindi ba convenient kung sa props at emit lang i-handle?`,
+    `Nagiging komplikado ba ang parent-child communication?`
+   ],
+  },
+  { 
+   title: 'Define Emits',
+   rule: `🔑 Rule: Gumamit ng defineEmits kung child-to-parent communication ang kailangan.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `May event ba na galing sa child (ex: button click) na kailangan i-handle ng parent?`,
+    `Ayaw ko bang i-hardcode yung logic sa child para flexible siya?`,
+    `Dynamic ba yung action depende kung saan ginamit yung component?`,
+    `Kailangan ba ng custom event name para mas descriptive kaysa @click lang?`,
+    `Mas magiging reusable ba kung ipapasa na lang event sa parent kaysa gawin lahat sa child?`
+   ],
+  },
+  { 
+   title: 'Watchers',
+   rule: `🔑 Rule: Gumamit ng watcher kung kailangan mag-react sa pagbabago ng value nang hindi automatic sa template.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `May side-effect ba kapag nagbago ang value (API call, log, timer)?`,
+    `Hindi ba sapat ang computed para sa reactive value?`,
+    `Kailangan bang bantayan ang nested object/array changes?`,
+    `May condition ba na dapat gawin lang kapag nagbago ang data?`,
+    `Real-time ba dapat ang reaksyon (ex: search filter habang nagta-type)?`
+   ],
+  },
+  { 
+   title: 'Computed',
+   rule: `🔑 Rule: Gumamit ng computed kung derived value lang mula sa ibang reactive data.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Nakukuha lang ba ito mula sa ibang reactive values?`,
+    `Uulitin ko ba yung logic na ito sa template kung wala ito?`,
+    `Hindi ba siya dependent sa async action (kundi dapat methods/watch)?`,
+    `Makakabawas ba sa code duplication kung gagawin kong computed?`,
+    `Mas readable ba ang template kung i-compute ko na lang muna?`
+   ],
+  },
+  { 
+   title: 'onMounted()',
+   rule: `🔑 Rule: Gumamit ng onMounted para sa actions na kailangan gawin lang pag-render na ang DOM.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Kailangan ko ba mag-fetch ng data agad pagkabukas ng page?`,
+    `May external library ba na kailangang i-initialize after DOM render?`,
+    `Dapat ba ng access sa DOM element (refs) bago mag-execute ng logic?`,
+    `May side effect ba na hindi dapat tumakbo sa SSR (server-side)?`,
+    `Critical ba na gawin ito isang beses lang per mount?`
+   ],
+  },
+  { 
+   title: 'Local Storage',
+   rule: `🔑 Rule: Gumamit ng Local Storage para sa maliit na data na kailangan tumagal kahit i-refresh ang page.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Data ba ito na hindi sensitive (hindi password/token)?`,
+    `Kailangan ba ma-retain kahit i-refresh o i-close browser?`,
+    `Hindi ba ito sobrang laki para i-save (prefer DB/API for big data)?`,
+    `Kailangan ba ito para sa user preference (theme, language, layout)?`,
+    `Hindi ba siya critical sa security (dapat cookies/session ang gamitin kung sensitive)?`
+   ],
+  }
+])
+
+
+
+
+
+
 definePageMeta({
     layout: 'main'
 })
-
 </script>

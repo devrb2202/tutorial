@@ -1,6 +1,6 @@
 <!-- components/PageToc.vue -->
 <template>
-  <v-sheet v-if="sections.length" class="pa-3" v-for="x in 5">
+  <v-sheet v-if="sections.length" class="pa-3">
       <!-- highlight active -->
     <div class="d-flex mt-5 mb-5 align-center">
         <v-icon size="24">mdi-sort-variant</v-icon>

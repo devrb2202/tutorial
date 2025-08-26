@@ -1,8 +1,9 @@
 <template>
   <v-container fluid :id="id" class="pa-0">
     <p class="text-h5 font-weight-bold">{{ routeTitle }}</p>
-    <p class="text-subtitle-1 opacity-80">
-      {{ details }}
+    <p class="text-subtitle-1 opacity-80" v-for="(x, index) in details" :key="index">
+      {{ x }}
+      <br />
     </p>
   
   <v-card class="my-5 pa-0" variant="flat">
@@ -70,6 +71,7 @@ const copyCode = async () => {
     console.error('Failed to copy:', err)
   }
 }
+
 
 onMounted(() => {
   const lang = props.language || 'javascript'
