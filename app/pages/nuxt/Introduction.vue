@@ -1,5 +1,5 @@
 <template>
-  <p class="text-h5 opacity-80">⚖️ Nuxt Development Rules</p>
+  <p class="text-h5 opacity-80">⚖️ My Own Development Rules</p>
   <v-container fluid 
     v-for="(x, index) in content" 
     :key="index"
@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-
 
 
 const content = ref([
@@ -110,9 +109,6 @@ const content = ref([
    ],
   }
 ])
-
-
-
 
 
 

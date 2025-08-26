@@ -94,7 +94,7 @@ const theme = useTheme()
 
 
 const nuxtMenu = ref([
-  { title: 'Introduction to Nuxt', to: '/nuxt/introduction'},
+  { title: 'Development Rules', to: '/nuxt/introduction'},
   { title: 'Creating Pages', to: '/nuxt/create-page'},
   { title: 'Reusable components', to: '/nuxt/components'},
   { title: 'Creating layouts(shared UI)', to: '/nuxt/layouts'},
