@@ -19,10 +19,13 @@
           v-for="(menu, index) in nuxtMenu" 
           :key="index" 
           block
-          class="text-font-600 justify-start opacity-80"
+          :class="`text-font-600 justify-start opacity-80 ${{'active-btn': $route.path === menu.to}}`"
+         
           :text="menu.title"
           :to="menu.to"
+        
         />
+        <!--  class="text-font-600 justify-start opacity-80" -->
       </div>
 
       <div class="">
@@ -173,11 +176,19 @@ const windowsMenu = ref([
   font-weight: 300;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
+/* 
 .v-btn:hover {
-  color: #F50057;
-  
+  color: #F50057 !important;
+  opacity: 1 !important;
 }
+.active-btn .v-btn__content {
+  color: #F50057 !important;
+  background-color: #F50057;
+  font-weight: 600;
+  opacity: 1 !important;
+} */
+
+
 
 .inline {
   display: inline;

@@ -9,8 +9,6 @@
 
 <script setup>
 
-definePageMeta({
-    layout: 'main'
-})
+
 
 </script>

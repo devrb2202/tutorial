@@ -1,12 +1,12 @@
 <template>
   <v-container fluid :id="id" class="pa-0">
     <p class="text-h5 font-weight-bold">{{ routeTitle }}</p>
-    <p class="text-subtitle-1 opacity-80" v-for="(x, index) in details" :key="index">
+    <p class="text-subtitle-1" v-for="(x, index) in details" :key="index">
       {{ x }}
       <br />
     </p>
   
-  <v-card class="my-5 pa-0" variant="flat">
+  <v-card class="my-2 pa-0" variant="flat">
     <!-- Header -->
     <v-card-title class="d-flex justify-space-between align-center bg-grey-darken-3 py-2">
       <span class="text-caption">{{ title }}</span>
@@ -21,7 +21,7 @@
     
     <!-- Code Block -->
     <v-card-text class="pa-0">
-      <div class="bg-grey-darken-4 w-100 overflow-auto" style="max-height: 300px;">
+      <div class="bg-grey-darken-4 w-100 overflow-auto px-2" style="max-height: 300px;">
         <pre class="">
           <code v-html="highlighted"></code>
         </pre>

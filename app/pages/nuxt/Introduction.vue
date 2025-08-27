@@ -107,12 +107,46 @@ const content = ref([
     `Kailangan ba ito para sa user preference (theme, language, layout)?`,
     `Hindi ba siya critical sa security (dapat cookies/session ang gamitin kung sensitive)?`
    ],
+  },
+  { 
+   title: 'v-for loop',
+   rule: `🔑 Rule: Loop for rendering list/collection.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `May array/object ba na need i-render?`,
+    `Pare-pareho ba structure ng UI?`,
+    `May unique :key ba?`,
+    `Hindi ba sobrang laki ng dataset?`,
+    `Need ba nested loop o i-transform muna?`
+   ],
+  },
+  { 
+   title: 'Middleware',
+   rule: `🔑 Rule: Middleware is for guarding routes, redirecting users, and running checks before entering a page.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Kailangan ko bang i-check kung authenticated ang user bago pumasok sa page?`,
+    `May role-based access ba (admin/user/guest)?`,
+    `May kailangan bang i-redirect depende sa state (hal. logged in → dashboard, guest → login)?`,
+    `Kailangan ba mag-run ng logic bago i-render ang page (not after)?`,
+    `Reusable ba ang guard (hal. same auth check sa maraming pages)?`
+   ],
+  },
+  { 
+   title: 'Middleware',
+   rule: `🔑 Rule: Middleware is for guarding routes, redirecting users, and running checks before entering a page.`,
+   hints: `❓ Mga tanong/hints:`,
+   options: [
+    `Kailangan ko bang i-check kung authenticated ang user bago pumasok sa page?`,
+    `May role-based access ba (admin/user/guest)?`,
+    `May kailangan bang i-redirect depende sa state (hal. logged in → dashboard, guest → login)?`,
+    `Kailangan ba mag-run ng logic bago i-render ang page (not after)?`,
+    `Reusable ba ang guard (hal. same auth check sa maraming pages)?`
+   ],
   }
 ])
 
 
 
-definePageMeta({
-    layout: 'main'
-})
+
 </script>

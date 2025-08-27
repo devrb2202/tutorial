@@ -232,7 +232,5 @@ const components = ref([
 ])
 
 
-definePageMeta({
-    layout: 'main'
-})
+
 </script>

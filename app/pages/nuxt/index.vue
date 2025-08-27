@@ -436,8 +436,6 @@ const content = ref([
 ])
 
 
-definePageMeta({
-    layout: 'main'
-})
+
 
 </script>
