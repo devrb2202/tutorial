@@ -176,12 +176,12 @@ const windowsMenu = ref([
   font-weight: 300;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-/* 
+
 .v-btn:hover {
-  color: #F50057 !important;
-  opacity: 1 !important;
+  color: #F50057;
+  
 }
-.active-btn .v-btn__content {
+/* .active-btn .v-btn__content {
   color: #F50057 !important;
   background-color: #F50057;
   font-weight: 600;

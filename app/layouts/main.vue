@@ -112,23 +112,13 @@
 
 <script setup>
 import { ref } from 'vue'
-//import { useTheme } from 'vuetify/lib/composables/theme.mjs'
 const { theme, toggleTheme } = useThemes()
 
 const drawer = ref(null)
 const mobileDrawer = ref(null)
 
 
-// const theme = useTheme()
-
 const hitRoute = computed(() => route.path !== '/')
-
-
-
-// function toggleTheme(){
-//   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
- 
-// }
 
 
 const pageOrder = [

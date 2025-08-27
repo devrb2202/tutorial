@@ -10,7 +10,7 @@ html.dark .border-bottom {
 html, body, #__nuxt, .v-application {
   transition: background-color 0.4s ease, color 0.4s ease;
 } */
-
+/* 
 .v-btn:hover {
   color: #F50057 !important;
   opacity: 1 !important;
@@ -20,4 +20,4 @@ html, body, #__nuxt, .v-application {
   background-color: #F50057;
   font-weight: 600;
   opacity: 1 !important;
-}
+} */

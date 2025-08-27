@@ -1,0 +1,41 @@
+[
+	{
+		"id": "basic",
+		"routeTitle": "Basic Component",
+		"title": "~/components/Input.vue",
+		"details": ["Basic Reusable Input Component"],
+		"code": "\n<template>\n\t<div class=\"flex\">\n\t\t<input :placeholder=\"placeholder\" :type=\"type\" class=\"p-12\" />\n\t</div>\n</template>\n\n<script setup>\ndefineProps({\n\tlabel: String,\n\tplaceholder: String,\n\ttype: 'text' | 'number' | 'date' | 'password'\n})\n</script>\n\n<style scoped>\n.flex {\n\tdisplay: flex;\n}\n.justify-center {\n\tjustify-content: center;\n}\n.align-center {\n\talign-items: center;\n}\n.text-white {\n\tcolor: white;\n}\n.p-12 {\n\tpadding: 12px;\n}\n.border-bottom {\n\tborder-bottom: 2px solid red;\n}\n</style>"
+	},
+	{
+		"id": "basic",
+		"routeTitle": "",
+		"title": "~/pages/index.vue",
+		"details": [],
+		"code": "\n<template>\n\t<div>\n\t\t<Input placeholder=\"Username\" type=\"text\" />\n\t\t<Input placeholder=\"Password\" type=\"password\" />\n\t\t<Input placeholder=\"Date\" type=\"date\" />\n\t</div>\n</template>"
+	},
+	{
+		"id": "advance",
+		"routeTitle": "Advance Reusable Component",
+		"title": "~/components/Input.vue",
+		"details": ["Advance Reusable Component"],
+		"code": "\n<template>\n\t<v-text-field v-for=\"(x, index) in model\" :key=\"index\" :label=\"x.label\" :placeholder=\"x.placeholder\" :prepend-inner-icon=\"x.icon\" :type=\"x.type\" color=\"orange-darken-3\" variant=\"underlined\" v-model=\"x.v_model\" />\n</template>\n\n<script setup lang=\"ts\">\ninterface TextFieldItem {\n\tlabel: string\n\tplaceholder: string\n\ticon: string\n\ttype: string\n\tv_model: string\n}\n\ndefineProps<{\n\tmodel: TextFieldItem[]\n}>()\n</script>"
+	},
+	{
+		"id": "advance",
+		"title": "~/pages/index.vue",
+		"details": "",
+		"code": "\n<template>\n\t<v-container>\n\t\t<h1>Advance Reusable Component</h1>\n\t\t<Input :model=\"inputs\" />\n\t</v-container>\n</template>\n\n<script setup lang=\"ts\">\ninterface InputField {\n\tlabel: string\n\tplaceholder: string\n\ticon: string\n\ttype: string\n\tv_model: Ref<string>\n}\n\nconst email = ref('')\nconst password = ref('')\n\nconst inputs = ref<InputField[]>([\n\t{ label: 'Username', placeholder: 'Username', icon: 'mdi-account', type: 'email', v_model: email },\n\t{ label: 'Password', placeholder: 'Password', icon: 'mdi-lock', type: 'password', v_model: password }\n])\n\ndefinePageMeta({\n\tlayout: 'main'\n})\n</script>"
+	},
+	{
+		"id": "advance",
+		"title": "~/components/Container.vue",
+		"details": ["Using Slot"],
+		"code": "\n<template>\n\t<v-container fluid class=\"h-screen d-flex align-center bg-grey-lighten-3\">\n\t\t<v-row class=\"justify-center\">\n\t\t\t<v-col cols=\"12\" xs=\"12\" sm=\"5\" md=\"4\" lg=\"3\" xl=\"3\" xxl=\"4\">\n\t\t\t\t<v-container class=\"bg-white pa-16\">\n\t\t\t\t\t<slot name=\"left\"></slot>\n\t\t\t\t</v-container>\n\t\t\t</v-col>\n\t\t</v-row>\n\t</v-container>\n</template>"
+	},
+	{
+		"id": "advance",
+		"title": "~/pages/index.vue",
+		"details": ["Using Slot"],
+		"code": "\n<template>\n\t<Container>\n\t\t<template #left>\n\t\t\t<h1>Advance Reusable Component</h1>\n\t\t\t<v-btn>login</v-btn>\n\t\t\t<v-text-field v-for=\"(x, index) in inputs\" :key=\"index\" :label=\"x.label\" :placeholder=\"x.placeholder\" :type=\"x.type\" :prepend-inner-icon=\"x.icon\" v-model=\"x.v_model\" />\n\t\t</template>\n\t</Container>\n</template>\n\n<script setup lang=\"ts\">\ninterface InputField {\n\tlabel: string\n\tplaceholder: string\n\ticon: string\n\ttype: string\n\tv_model: string\n}\n\nconst email = ref('')\nconst password = ref('')\n\nconst inputs = ref<InputField[]>([\n\t{ label: 'Username', placeholder: 'Username', icon: 'mdi-account', type: 'email', v_model: email.value },\n\t{ label: 'Password', placeholder: 'Password', icon: 'mdi-lock', type: 'password', v_model: password.value }\n])\n\ndefinePageMeta({\n\tlayout: 'main'\n})\n</script>"
+	}
+]

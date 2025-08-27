@@ -9,7 +9,8 @@ const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
   if (to.hash) {
     const el = document.querySelector(to.hash)
     if (el) {
-      const topOffset = 80 // taas ng AppBar/Navbar
+      // taas ng AppBar/Navbar
+      const topOffset = 80 
       const elementPosition = el.getBoundingClientRect().top + window.scrollY
       return {
         left: 0,

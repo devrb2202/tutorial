@@ -1,0 +1,100 @@
+[
+  {
+    "subtitle": "Ano ang Layout?",
+    "subDetails": "Sa Nuxt, ang Layout ay parang template wrapper para sa iyong pages.",
+    "bullet": [
+      "Halimbawa: Navbar, Sidebar, at Footer na gusto mong gamitin sa maraming pages.",
+      "Mas organized kaysa i-copy-paste yung UI sa bawat page."
+    ],
+    "subject": "Default Layout (layouts/default.vue)",
+    "content": [
+      {
+        "title": "~/layouts/default.vue",
+        "details": [
+          "Lahat ng pages ay automatic gagamit ng default.vue kung hindi ka mag-set ng ibang layout."
+        ],
+        "code": "\n<!-- layouts/default.vue -->\n<template>\n\t<div>\n\t\t<Navbar />\n\t\t<slot /> <!-- dito papasok ang page -->\n\t\t<Footer />\n\t</div>\n</template>\n\n<script setup>\nimport Navbar from '~/components/Navbar.vue'\nimport Footer from '~/components/Footer.vue'\n</script>"
+      },
+      {
+        "title": "~/pages/index.vue",
+        "details": [
+          "Sample Usage",
+          "👉 Walang config = automatic naka-wrap sa default.vue."
+        ],
+        "code": "\n<!-- pages/index.vue -->\n<template>\n\t<h1>Home Page</h1>\n</template>"
+      }
+    ]
+  },
+  {
+    "subtitle": "Custom Layouts",
+    "subDetails": "Pwede kang gumawa ng iba pang layouts, e.g. layouts/admin.vue, layouts/guest.vue.",
+    "bullet": [],
+    "subject": "Example (layouts/admin.vue):",
+    "content": [
+      {
+        "title": "~/layouts/default.vue",
+        "details": [],
+        "code": "\n<template>\n\t<div class=\"flex\">\n\t\t<Sidebar />\n\t\t<main class=\"flex-1\">\n\t\t\t<slot />\n\t\t</main>\n\t</div>\n</template>\n\n<script setup>\nimport Sidebar from '~/components/Sidebar.vue'\n</script>"
+      },
+      {
+        "title": "~/pages/index.vue",
+        "details": [
+          "Sample Usage"
+        ],
+        "code": "\n<script setup>\ndefinePageMeta({\n\tlayout: 'admin'\n})\n</script>\n\n<template>\n\t<h1>Admin Dashboard</h1>\n</template>"
+      }
+    ]
+  },
+  {
+    "subtitle": "Global Override with app.vue",
+    "subDetails": "Kung gusto mo lahat ng pages gumamit ng isang layout (kahit walang definePageMeta), pwede mo i-override sa app.vue:",
+    "bullet": [],
+    "subject": "",
+    "content": [
+      {
+        "title": "~/pages/index.vue",
+        "details": [
+          "👉 Useful kung gusto mong gawin global ang isang custom layout."
+        ],
+        "code": "\n<!-- app.vue -->\n<template>\n\t<NuxtLayout name=\"admin\">\n\t\t<NuxtPage />\n\t</NuxtLayout>\n</template>"
+      }
+    ]
+  },
+  {
+    "subtitle": "Dynamic Layouts (Condition-based)",
+    "subDetails": "Pwede mo ring gawing dynamic ang layout depende sa state (e.g. user login).",
+    "bullet": [],
+    "subject": "",
+    "content": [
+      {
+        "title": "~/pages/index.vue",
+        "details": [
+          "Example:"
+        ],
+        "code": "\n<script setup>\nconst user = useSupabaseUser()\n\ndefinePageMeta({\n\tlayout: user.value ? 'admin' : 'guest'\n})\n</script>\n\n<template>\n\t<h1>Dynamic Layout Example</h1>\n</template>"
+      }
+    ]
+  },
+  {
+    "subtitle": "Best Practices",
+    "subDetails": "Pwede mo ring gawing dynamic ang layout depende sa state (e.g. user login).",
+    "bullet": [
+      "✅ Gumamit ng default.vue bilang base/global layout.",
+      "✅ Gumawa ng feature-specific layouts (e.g. admin.vue, auth.vue).",
+      "✅ Iwasan ang sobrang nested layouts – mas mabuting gumawa ng clean, reusable components.",
+      "✅ Sa Nuxt 4 (upcoming/stable), same concepts pa rin, backward compatible ang layouts/ system."
+    ],
+    "subject": ""
+  },
+  {
+    "subtitle": "✍️ Exercise Ideas",
+    "subDetails": "Pwede mo ring gawing dynamic ang layout depende sa state (e.g. user login).",
+    "bullet": [
+      "✅ Gumawa ng default.vue na may Navbar + Footer.",
+      "✅ Gumawa ng admin.vue layout na may Sidebar.",
+      "✅ Mag-set ng isang page (/admin) na gagamit ng admin layout.",
+      "✅ Gawin na dynamic: kung hindi logged in, gumamit ng guest layout."
+    ],
+    "subject": ""
+  }
+]

@@ -104,5 +104,6 @@
     ],
     "code": "\n<template>\n\t<p class=\"text-h5 opacity-80\">⚖️ Nuxt Development Rules</p>\n\t<v-container fluid \n\t\tv-for=\"(x, index) in content\" \n\t\t:key=\"index\"\n\t>\n\t\t<p class=\"text-subtitle-1\">{{ index+1 }}. {{ x.title }}</p>\n\t\t<p class=\"text-subtitle-1\">{{ x.rule }}</p>\n\t\t<p class=\"text-subtitle-1\">{{ x.hints }}</p>\n\t\t<v-card>\n\t\t\t<v-card-text>\n\t\t\t\t<p class=\"text-subtitle-1\" v-for=\"(option, optionsIndex) in x.options\" :key=\"optionsIndex\">\n\t\t\t\t\t{{ optionsIndex+1 }}. {{ option }}\n\t\t\t\t</p>\n\t\t\t</v-card-text>\n\t\t</v-card>\n\t</v-container>\n</template>"
   }
+ 
 
 ]
