@@ -1,4 +1,3 @@
-<!-- components/PageToc.vue -->
 <template>
   <v-sheet v-if="sections.length" class="pa-3">
       <!-- highlight active -->
@@ -29,7 +28,6 @@ const route = useRoute()
 const { toc, active } = useToc()
 
 const sections = computed(() => toc[route.path] || [])
-
 
 
 </script>

@@ -77,6 +77,23 @@
             :text="menu.title"
           />
       </div>
+
+      <div class="">
+        <div class="d-flex mt-5 mb-5 align-center">
+          <v-icon color="pink-accent-3">mdi-aws</v-icon>
+          <p class="text-h6 opacity-80 text-uppercase ml-1">DevOps</p>
+        </div>
+        
+          <v-btn 
+            variant="text" 
+            :ripple="false" 
+            v-for="(menu, index) in devOps" 
+            :key="index" 
+            block
+            class="text-font-600 justify-start opacity-80"
+            :text="menu.title"
+          />
+      </div>
       <v-divider></v-divider>
        <div class="pt-10 pb-5">
           <p class="text-h4 text-block font-weight-bold"></p>
@@ -92,9 +109,7 @@
 <script setup>
 import { useTheme } from 'vuetify/lib/composables/theme.mjs'
 
-
 const theme = useTheme()
-
 
 const nuxtMenu = ref([
   { title: 'Development Rules', to: '/nuxt/introduction'},
@@ -149,6 +164,12 @@ const windowsMenu = ref([
   { title: 'Maintenance Essentials', to: '/'},
   { title: 'Useful Powershell Command', to: '/'}
 
+])
+
+
+const devOps = ref([
+  { title: 'Guide', to: '/devops/'},
+ 
 ])
 
 </script>

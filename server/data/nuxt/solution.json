@@ -103,5 +103,22 @@
 			"🏆 Bottom Line: Gamitin ang index + 1 para sa simple, stable, at efficient na numbering na hindi apektado ng Vue's reactivity system."
 		],
 		"code": "\n<template>\n\t<p class=\"text-h5 opacity-80\">⚖️ Nuxt Development Rules</p>\n\t<v-container fluid\n\t\tv-for=\"(x, index) in content\"\n\t\t:key=\"index\"\n\t>\n\t\t<p class=\"text-subtitle-1\">{{ index+1 }}. {{ x.title }}</p>\n\t\t<p class=\"text-subtitle-1\">{{ x.rule }}</p>\n\t\t<p class=\"text-subtitle-1\">{{ x.hints }}</p>\n\t\t<v-card>\n\t\t\t<v-card-text>\n\t\t\t\t<p class=\"text-subtitle-1\" v-for=\"(option, optionsIndex) in x.options\" :key=\"optionsIndex\">\n\t\t\t\t\t{{ optionsIndex+1 }}. {{ option }}\n\t\t\t\t</p>\n\t\t\t</v-card-text>\n\t\t</v-card>\n\t</v-container>\n</template>"
+	},
+	{
+		"id": "crud-basic",
+		"routeTitle": "CRUD Basic",
+		"title": "Vue 3 Simple CRUD (Add, Update, Delete, Clear)",
+		"details": [
+			"🎯 Core Concept: Gumamit ng `ref` para sa reactive state (`lalagyan`, `ilalagay`, `buttonName`, `editIndex`).",
+			"⚡ Add: Kapag may laman ang input at walang active edit, ipupush sa array (`lalagyan`).",
+			"🔄 Update: Kapag may `editIndex`, papalitan ang existing item at mare-reset ang state pabalik sa add mode.",
+			"❌ Delete: Madaling tanggalin gamit ang `splice(index, 1)` para maalis ang isang item.",
+			"🧹 Clear All: Reset ang buong array (`lalagyan = []`) para mabilis mag-empty ng list.",
+			"🛠️ UX Flow: Kapag nag-click ng 'baguhin', malilipat ang value sa input, at magbabago ang button text mula `add` → `update`.",
+			"💡 Maintainability: Malinis ang logic kasi naka-separate ang bawat function (`maglagay`, `tanggalin`, `baguhin`) para madaling palawakin.",
+			"🏆 Bottom Line: Simpleng pattern para sa CRUD na madaling intindihin at i-extend (pwedeng dagdagan ng save-to-API, validations, o UI polish)."
+		],
+		"code": "\n<template>\n  <div class=\"flex justify-center align-center py-2 h-full p-0\">\n    <div class=\"flex col\">\n      <h1>CRUD</h1>\n      <input placeholder=\"ilalagay\" v-model=\"ilalagay\" class=\"py-2 px-2\"/>\n      <button class=\"py-2 my-2 text-capitalize\" @click=\"maglagay\">\n        {{ buttonName }}\n      </button>\n      <p>List</p>\n      <div class=\"col\">\n        <ul v-for=\"(x, index) in lalagyan\" :key=\"index\">\n          <li>{{ x.inilagay }}\n            <button class=\"text-capitalize\" @click=\"tanggalin(index)\">\n              tanggalin\n            </button>\n            <button class=\"text-capitalize\" @click=\"baguhin(index)\">\n              baguhin\n            </button>\n          </li>\n        </ul>  \n      </div>\n      <button class=\"py-2 my-2\" @click=\"lalagyan = []\">\n        Burahin Lahat\n      </button>\n    </div>\n  </div>\n</template>\n\n<script setup>\nimport { ref } from 'vue'\n\nconst lalagyan = ref([])\nconst ilalagay = ref('')\nconst buttonName = ref('add')\nconst editIndex = ref(null)\n\nfunction maglagay(){\n  if(ilalagay.value.trim()){\n    if(editIndex.value !== null) {\n      // UPDATE PATTERN\n      lalagyan.value[editIndex.value].inilagay = ilalagay.value\n      editIndex.value = null\n      buttonName.value = 'add'\n    } else {\n      // ADD\n      lalagyan.value.push({\n        inilagay: ilalagay.value\n      })\n    }\n    ilalagay.value = ''\n  }\n  else {\n    alert('Walang nailagay!')\n  }\n}\n\nfunction tanggalin(index){\n  lalagyan.value.splice(index, 1)\n}\n\nfunction baguhin(index){\n  ilalagay.value = lalagyan.value[index].inilagay\n  editIndex.value = index\n  buttonName.value = 'update'\n}\n</script>\n"
 	}
+
 ]

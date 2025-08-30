@@ -4,8 +4,7 @@
     <p class="text-subtitle-1" v-for="(x, index) in details" :key="index">
       {{ x }}
       <br />
-    </p>
-  
+    </p>  
   <v-card class="my-2 pa-0" variant="flat">
     <!-- Header -->
     <v-card-title class="d-flex justify-space-between align-center bg-grey-darken-3 py-2">
@@ -17,10 +16,18 @@
         @click="copyCode"
         color="white"
       />
+      <!-- <v-btn 
+        size="small" 
+        variant="text" 
+        :icon="`${drawer ? 'mdi-chevron-down' : 'mdi-chevron-up'}`" 
+        @click="drawer = !drawer"
+        color="white"
+        
+      /> -->
     </v-card-title>
     
     <!-- Code Block -->
-    <v-card-text class="pa-0">
+    <v-card-text class="pa-0" v-if="drawer">
       <div class="bg-grey-darken-4 w-100 overflow-auto px-2" style="max-height: 300px;">
         <pre class="">
           <code v-html="highlighted"></code>
@@ -50,6 +57,9 @@ import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-css'
+
+const drawer = ref(true)
+
 
 const props = defineProps({
   id: String,
@@ -82,3 +92,5 @@ onMounted(() => {
   )
 })
 </script>
+
+
