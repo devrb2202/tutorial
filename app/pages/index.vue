@@ -32,25 +32,6 @@
   </v-container>
 </template>
 
-<style scoped>
-
-
-.v-card{
-  /* transition: all 0.3s ease; */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: none; /* no elevation */
-}
-.v-card:hover {
-  /* transform: scale(1.05);  
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
-  transform: rotate(15deg) scale(1.03); */
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* custom elevation effect */
-
-}
-
-</style>
-
 <script setup>
 import { TutorialsCard } from '#components';
 
@@ -85,3 +66,26 @@ definePageMeta({
   layout: 'main'
 })
 </script>
+
+
+<style scoped>
+
+
+.v-card{
+  /* transition: all 0.3s ease; */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: none; /* no elevation */
+}
+.v-card:hover {
+  /* transform: scale(1.05);  
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+  transform: rotate(15deg) scale(1.03); */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* custom elevation effect */
+
+}
+
+</style>
+
+
+
