@@ -1,5 +1,5 @@
 # ---- Base ----
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 WORKDIR /app
 COPY package*.json ./
 
@@ -14,14 +14,10 @@ COPY . .
 RUN npm run build
 
 # ---- Production ----
-FROM node:18-alpine AS prod
+FROM node:20-alpine AS prod
 WORKDIR /app
-
-# Copy build output and minimal files
 COPY --from=build /app/.output ./.output
 COPY --from=build /app/package*.json ./
-
-# Install only production deps
 RUN npm install --omit=dev
 
 EXPOSE 3000
